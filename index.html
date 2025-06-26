@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alonso Paredes - Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Incluir la fuente Madimi One -->
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#about" class="nav-link" id="aboutLink">About me</a></li>
+                <li><a href="#portfolio" class="nav-link" id="portfolioLink">Portfolio</a></li>
+                <li><a href="#resume" class="nav-link" id="resumeLink">Resume</a></li>
+                <li><a href="#contact" class="nav-link" id="contactLink">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <!-- About Section -->
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="profile-image">
+                <img src="/assets/images/f5ef5e51-c0c9-43d9-948f-5494403f70bf.jfif" alt="Alonso Paredes" class="profile-img">
+            </div>
+            <div class="about-text">
+                <h1 class="welcome-text" id="welcomeText">BIENVENIDO</h1>
+                <h2 class="name-text" id="nameText">SOY ALONSO PAREDES</h2>
+                <button id="aboutBtn" class="about-btn">Sobre mí</button>
+                <div id="aboutContent" class="about-expanded">
+                    <p id="aboutTextContent">Soy un desarrollador apasionado con experiencia en desarrollo web, aplicaciones de escritorio y modelos de inteligencia artificial. Me especializo en crear soluciones innovadoras utilizando tecnologías como Java, Python, HTML, CSS, JavaScript y MySQL. Mi objetivo es combinar creatividad y tecnología para desarrollar proyectos que generen impacto positivo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio-section">
+    <div class="container">
+        <h2 class="section-title" id="portfolioTitle">Things I have designed</h2>
+        <div class="portfolio-categories">
+            <div class="category-card" data-category="web">
+                <div class="category-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 id="categoryWeb">WEB</h3>
+            </div>
+            <div class="category-card" data-category="desktop">
+                <div class="category-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h3 id="categoryDesktop">DESKTOP</h3>
+            </div>
+            <div class="category-card" data-category="models">
+                <div class="category-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 id="categoryAIModels">AI MODELS</h3>
+            </div>
+        </div>
+
+        <!-- Projects Container -->
+        <div id="projectsContainer" class="projects-container">
+            <!-- Web Projects -->
+            <div class="projects-grid" data-category="web">
+                <div class="project-card">
+                    <a >
+                        <img src="assets/images/trendSpace-Web.png" alt="Web Project 1" class="project-image">
+                        <div class="project-info">
+                            <h4 id="projectWeb1">E-commerce Platform</h4>
+                            <p id="projectWeb1Desc">Plataforma de comercio electrónico desarrollada con tecnologías modernas para una experiencia de usuario óptima.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Botón de enlace debajo del proyecto -->
+                    <a href="https://trendspace.hubstem.org" class="project-button">Ver Proyecto</a>
+                </div>
+                <div class="project-card">
+                    <a>
+                        <img src="/assets/images/Trujillo T3D - Web.png" alt="Web Project 2" class="project-image">
+                        <div class="project-info">
+                            <h4 id="projectWeb2">Portfolio Website</h4>
+                            <p id="projectWeb2Desc">Sitio web responsivo para mostrar proyectos y habilidades profesionales con diseño moderno.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Botón de enlace debajo del proyecto -->
+                    <a href="https://www.figma.com/design/uhTcVExHoqIG6rCEkH8xav/INSO-INTERFACES?node-id=0-1&t=ogr1av9eDo8ZRThQ-1" class="project-button">Ver Proyecto</a>
+                </div>
+                <div class="project-card">
+                    <a>
+                        <img src="assets/images/calcular-salario.png" alt="Web Project 3" class="project-image">
+                        <div class="project-info">
+                            <h4 id="projectWeb3">Calculadora Salario</h4>
+                            <p id="projectWeb3Desc">Sitio web responsivo para calcular el salario de un empleado.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Angular</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Botón de enlace debajo del proyecto -->
+                    <a href="https://hxtxrchq.github.io/calculadora-salario-main/" class="project-button">Ver Proyecto</a>
+                </div>
+            </div>
+
+            <!-- Desktop Projects -->
+            <div class="projects-grid" data-category="desktop">
+                <div class="project-card">
+                    <a>
+                        <img src="assets/images/MiniMarketGG.png" alt="Desktop Project" class="project-image">
+                        <div class="project-info">
+                            <h4>MiniMarketGG</h4>
+                            <p>Sistema de Ventas y Logistica de escritorio para un minimarket, permite: login de usuarios y configuración de permisos, venta de productos, control de inventario de productos, pedidos, categorias. Además, histtorial de ventas e impresión de boletas.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Botón de enlace debajo del proyecto -->
+                    <a href="https://github.com/hxtxrchq/MiniMarketGG" class="project-button">Ver Proyecto</a>
+                </div>
+                
+            </div>
+            
+            <!-- AI Models Projects -->
+            <div class="projects-grid" data-category="models">
+                <div class="project-card">
+                    <a>
+                        <img src="assets/images/Detección_De_Frutas - IA.png" alt="AI Project" class="project-image">
+                        <div class="project-info">
+                            <h4>Detección temprana de enfermedades en frutas usando CNN y Tensor Flow para mejorar el control de calidad agroalimentario</h4>
+                            <p>Desarrollar un sistema automatizado basado en redes neuronales convolucionales (CNN) utilizando TensorFlow para mejorar la precisión en la detección temprana de enfermedades en frutas en la agroindustria.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">CNN</span>
+                                <span class="tech-tag">TensorFlow</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Botón de enlace debajo del proyecto -->
+                    <a href="https://linkdelproyectoAI.com" class="project-button">Ver Proyecto</a>
+                </div>
+                <div class="project-card">
+                    <a>
+                        <img src="assets/images/deteccion_de_fraudes.png" alt="AI Project" class="project-image">
+                        <div class="project-info">
+                            <h4>Optimización de un modelo híbrido Autoencoder y Random Forest para la detección precisa de patrones anómalos en transacciones financieras </h4>
+                            <p>Evaluar la efectividad de un modelo híbrido optimizado basado en Autoencoders y Random Forest en la detección de patrones anómalos en transacciones financieras, mediante la reducción de características y optimización de recursos computacionales.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Autoencoder</span>
+                                <span class="tech-tag">RandomForest</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Botón de enlace debajo del proyecto -->
+                    <a href="https://linkdelproyectoAI.com" class="project-button">Ver Proyecto</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Resume Section -->
+<section id="resume" class="resume-section">
+    <div class="container">
+        <div class="timeline-container">
+            <div class="timeline-column">
+                <h2 class="timeline-title">Experiencias</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h4>PROMOTOR DE EXPERIENCIAS 1 - Oeschsle</h4>
+                            <p>Brindé atención al cliente, asesorando en productos y asegurando una experiencia de compra satisfactoria. Además, gestioné la reposición de mercadería y contribuí al cumplimiento de metas de ventas.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="timeline-column">
+                <h2 class="timeline-title">Educación</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h4>Universidad Privada Antenor Orrego</h4>
+                            <p> Me encuentro en el décimo superior de mi carrera universitaria y he culminado con éxito los primeros 7 ciclos. </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h4>Curso Discovery DNT-Startups</h4>
+                            <p>Aspirante a emprendedor o solopreneur que busca descubrir una idea de negocio y posibles cofundadores para emprender.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-content">
+                            <h4>Tecsup</h4>
+                            <p>Certificación del Programa Integral de INNOVALAB en Tecsup, con una duración de 51 horas. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title" id="contactTitle">Let's talk</h2>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="/js/script.js"></script>
+    <!-- Footer -->
+<footer class="footer">
+    <p>© 2025 Creado por chiqocorp</p>
+</footer>
+</body>
+</html>
