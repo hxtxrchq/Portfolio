@@ -12,10 +12,7 @@ const translations = {
         categoryWeb: "WEB",
         categoryDesktop: "DESKTOP",
         categoryAIModels: "AI MODELS",
-        projectWeb1: "E-commerce Platform",
-        projectWeb1Desc: "E-commerce platform built with modern technologies for an optimal user experience.",
-        projectWeb2: "Portfolio Website",
-        projectWeb2Desc: "Responsive website to showcase projects and professional skills with modern design.",
+        
         contactTitle: "Let's talk"
     },
     es: {
@@ -30,10 +27,7 @@ const translations = {
         categoryWeb: "WEB",
         categoryDesktop: "ESCRITORIO",
         categoryAIModels: "MODELOS DE IA",
-        projectWeb1: "Plataforma de Comercio Electrónico",
-        projectWeb1Desc: "Plataforma de comercio electrónico construida con tecnologías modernas para una experiencia de usuario óptima.",
-        projectWeb2: "Sitio Web Portafolio",
-        projectWeb2Desc: "Sitio web responsivo para mostrar proyectos y habilidades profesionales con diseño moderno.",
+        
         contactTitle: "Hablemos"
     }
 };
