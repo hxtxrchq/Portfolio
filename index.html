@@ -232,26 +232,34 @@
     </div>
 </section>
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title" id="contactTitle">Let's talk</h2>
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" id="phone" name="phone" placeholder="Phone">
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send</button>
-            </form>
-        </div>
-    </section>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2 class="section-title" id="contactTitle">Let's talk</h2>
+    <form action="https://formspree.io/f/mrbkowev" method="POST" class="contact-form">
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder="Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" id="phone" name="phone" placeholder="Phone">
+      </div>
+      <div class="form-group">
+        <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
+      </div>
+
+      <!-- Opcional: Desactiva captcha -->
+      <input type="hidden" name="_captcha" value="false">
+
+      <!-- Opcional: Redirección tras envío exitoso -->
+      <input type="hidden" name="_next" value="https://hxtxrchq.github.io/Portfolio/gracias.html">
+
+      <button type="submit" class="submit-btn">Send</button>
+    </form>
+  </div>
+</section>
+
 
     <script src="/Portfolio/js/script.js"></script>
     <!-- Footer -->
