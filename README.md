@@ -4,7 +4,7 @@
 </h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Courier+Prime&size=22&duration=4000&pause=2000&color=F5DEB3&center=true&width=435&lines=Systems+Engineering+Student;Building+useful+apps;Learning+every+day+and+coding+with+style" />
+  <img src="https://readme-typing-svg.demolab.com?font=Courier+Prime&size=22&duration=4000&pause=2000&color=F5DEB3&center=true&width=435&lines=Systems+Engineering+Student;Building+useful+apps;Learning+every+day" />
 </p>
 
 ---
