@@ -3,271 +3,495 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alonso Paredes - Portfolio</title>
-    <link rel="icon" href="/Portfolio/assets/images/icono.png" type="image/png">
-    <link rel="stylesheet" href="/Portfolio/css/style.css">
+    <title>Alonso Paredes Portfolio</title>
+    <link rel="icon" href="assets/images/icono.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Incluir la fuente Madimi One -->
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="#about" class="nav-link" id="aboutLink">About me</a></li>
-                <li><a href="#portfolio" class="nav-link" id="portfolioLink">Portfolio</a></li>
-                <li><a href="#resume" class="nav-link" id="resumeLink">Resume</a></li>
-                <li><a href="#contact" class="nav-link" id="contactLink">Contact</a></li>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">AP</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Sobre Mí</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experiencia</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contacto</a>
+                </li>
             </ul>
-        </nav>
-    </header>
-
-   <!-- About Section -->
-<section id="about" class="about-section">
-    <div class="container">
-        <div class="about-content">
-            <div class="profile-image">
-                <img src="/Portfolio/assets/images/FotoCarnet.jpg" alt="Alonso Paredes" class="profile-img">
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-            <div class="about-text">
-                <h1 class="welcome-text" id="welcomeText">BIENVENIDO</h1>
-                <h2 class="name-text" id="nameText">SOY ALONSO PAREDES</h2>
-                <button id="aboutBtn" class="about-btn">Sobre mí</button>
-                <div id="aboutContent" class="about-expanded">
-                    <p id="aboutTextContent">Soy un desarrollador apasionado con experiencia en desarrollo web, aplicaciones de escritorio y modelos de inteligencia artificial. Me especializo en crear soluciones innovadoras utilizando tecnologías como Java, Python, HTML, CSS, JavaScript y MySQL. Mi objetivo es combinar creatividad y tecnología para desarrollar proyectos que generen impacto positivo.</p>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="typing-text">Hola, soy</span>
+                        <br>
+                        <span class="name-highlight">Alonso Paredes</span>
+                    </h1>
+                    <p class="hero-subtitle"> Ingeniero de Sistemas & Desarrollador Integral </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                            <i class="fas fa-code"></i>
+                            Ver Proyectos
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                            <i class="fas fa-envelope"></i>
+                            Contactar
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <div class="profile-img">
+                            <img src="/assets/images/f5ef5e51-c0c9-43d9-948f-5494403f70bf.jfif" alt="Alonso Paredes">
+                        </div>
+                        <div class="profile-info">
+                            <h3>Alonso Paredes</h3>
+                            <p>Full Stack Developer</p>
+                            <div class="profile-links">
+                                <a href="https://github.com/hxtxrchq" target="_blank" class="profile-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" target="_blank" class="profile-link">
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                                <button class="profile-link" onclick="openCVModal()">
+                                    <i class="fas fa-file-pdf"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Moving Tech Bar -->
+    <div class="tech-marquee">
+        <div class="tech-track">
+            <div class="tech-item"><i class="fab fa-python"></i> Python</div>
+            <div class="tech-item"><i class="fab fa-java"></i> Java</div>
+            <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
+            <div class="tech-item"><i class="fab fa-react"></i> React</div>
+            <div class="tech-item"><i class="fab fa-angular"></i> Angular</div>
+            <div class="tech-item"><i class="fab fa-node-js"></i> Node.js</div>
+            <div class="tech-item"><i class="fas fa-database"></i> MySQL</div>
+            <div class="tech-item"><i class="fab fa-git-alt"></i> Git</div>
+            <div class="tech-item"><i class="fab fa-figma"></i> Figma</div>
+            <div class="tech-item"><i class="fab fa-wordpress"></i> WordPress</div>
+            <div class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+            <div class="tech-item"><i class="fas fa-brain"></i> TensorFlow</div>
         </div>
     </div>
-</section>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio-section">
-    <div class="container">
-        <h2 class="section-title" id="portfolioTitle">Things I have designed</h2>
-        <div class="portfolio-categories">
-            <div class="category-card" data-category="web">
-                <div class="category-icon">
-                    <i class="fas fa-globe"></i>
-                </div>
-                <h3 id="categoryWeb">WEB</h3>
-            </div>
-            <div class="category-card" data-category="desktop">
-                <div class="category-icon">
-                    <i class="fas fa-desktop"></i>
-                </div>
-                <h3 id="categoryDesktop">DESKTOP</h3>
-            </div>
-            <div class="category-card" data-category="models">
-                <div class="category-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h3 id="categoryAIModels">AI MODELS</h3>
-            </div>
-        </div>
-
-        <!-- Projects Container -->
-        <div id="projectsContainer" class="projects-container">
-            <!-- Web Projects -->
-            <div class="projects-grid" data-category="web">
-                <div class="project-card">
-                    <a >
-                        <img src="/Portfolio/assets/images/trendSpace-Web.png" alt="Web Project 1" class="project-image">
-                        <div class="project-info">
-                            <h4 id="projectWeb_1">TrendSpace</h4>
-                            <p id="projectWeb_1Desc">Plataforma de comercio electrónico colaborativo donde los usuarios no solo compran, sino también votan, proponen y apoyan diseños de moda únicos. La producción se activa solo cuando una prenda alcanza una meta mínima de interés, reduciendo desperdicios y fomentando decisiones colectivas.</p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">MySQL</span>
-                            </div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description" text-align="justify">
+                        Actualmente, estoy cursando la carrera de Ingeniería de Computación y Sistemas, 
+                        y me encuentro en la búsqueda de nuevas oportunidades laborales. Apasionado por el 
+                        aprendizaje continuo y el trabajo en equipo, busco aportar mis habilidades técnicas 
+                        y mi capacidad analítica en el ámbito profesional.
+                    </p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="8">0</div>
+                            <div class="stat-label">Ciclos Completados</div>
                         </div>
-                    </a>
-                    <!-- Botón de enlace debajo del proyecto -->
-                    <a href="https://trendspace.hubstem.org" class="project-button">Ver Proyecto</a>
-                </div>
-                <div class="project-card">
-                    <a>
-                        <img src="/Portfolio/assets/images/Trujillo T3D - Web.png" alt="Web Project 2" class="project-image">
-                        <div class="project-info">
-                            <h4 id="projectWeb_2">Trujillo T3D - Plataforma Web</h4>
-                            <p id="projectWeb_2Desc">Plataforma web donde los usuarios podrán comprar productos y hacer seguimiento de sus pedidos. A la vez, los usuarios que son parte de la propia empresa podrán tener la posibilidad de editar productos del catálogo, editar pedidos, entre otras funciones.</p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Figma</span>
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="2">0</div>
+                            <div class="stat-label">Años Experiencia</div>
                         </div>
-                    </a>
-                    <!-- Botón de enlace debajo del proyecto -->
-                    <a href="https://www.figma.com/design/uhTcVExHoqIG6rCEkH8xav/INSO-INTERFACES?node-id=0-1&t=ogr1av9eDo8ZRThQ-1" class="project-button">Ver Proyecto</a>
-                </div>
-                <div class="project-card">
-                    <a>
-                        <img src="/Portfolio/assets/images/calcular-salario.png" alt="Web Project 3" class="project-image">
-                        <div class="project-info">
-                            <h4 id="projectWeb_3">Calculadora Salario</h4>
-                            <p id="projectWeb_3Desc">Sitio web calculadora simple para calcular el salario de un empleado.</p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Angular</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="20">0</div>
+                            <div class="stat-label">Proyectos</div>
                         </div>
-                    </a>
-                    <!-- Botón de enlace debajo del proyecto -->
-                    <a href="https://trendspaceshopping.vercel.app/" class="project-button">Ver Proyecto</a>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <a >
-                        <img src="assets/images/image.png" alt="Web Project 4" class="project-image">
-                        <div class="project-info">
-                            <h4 id="projectWeb4">Web informativa - Municipalidad Chacaneque</h4>
-                            <p id="projectWeb4Desc">Web informativa de la Municipalidad de chacaneque, paginas de noticias, funcionarios, decretos supremos, etc</p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Wordpress</span>
-                                <span class="tech-tag">Elementor</span>
-                            </div>
+                <div class="skills-container">
+                    <div class="skills-category">
+                        <h3><i class="fas fa-code"></i> Lenguajes</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
                         </div>
-                    </a>
-                    <!-- Botón de enlace debajo del proyecto -->
-                    <a href="#" class="project-button">Ver Proyecto</a>
-                </div>
-            </div>
-            
-
-            
-            <!-- Desktop Projects -->
-            <div class="projects-grid" data-category="desktop">
-                <div class="project-card">
-                    <a>
-                        <img src="/Portfolio/assets/images/MiniMarketGG.png" alt="Desktop Project" class="project-image">
-                        <div class="project-info">
-                            <h4>MiniMarketGG</h4>
-                            <p>Sistema de ventas y control de inventario de escritorio para un minimarket, permiteiendo login de usuarios y configuración de permisos, venta de productos, control de inventario de productos, pedidos, categorias. Además, histtorial de ventas e impresión de boletas.</p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">MySQL</span>
-                            </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3><i class="fas fa-paint-brush"></i> Frontend</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Angular</span>
+                            <span class="skill-tag">WordPress</span>
+                            <span class="skill-tag">Bootstrap</span>
                         </div>
-                    </a>
-                    <!-- Botón de enlace debajo del proyecto -->
-                    <a href="https://github.com/hxtxrchq/MiniMarketGG" class="project-button">Ver Proyecto</a>
-                </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3><i class="fas fa-server"></i> Backend</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">SpringBoot</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3><i class="fas fa-database"></i> Bases de Datos</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                   
                 
+                   
+                    <div class="skills-category">
+                        <h3><i class="fas fa-book-reader"></i> Metodologías</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Scrum</span>
+                            <span class="skill-tag">XP</span>
+                            <span class="skill-tag">ITIL 4</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- AI Models Projects -->
-            <div class="projects-grid" data-category="models">
-                <div class="project-card">
-                    <a>
-                        <img src="/Portfolio/assets/images/Detección_De_Frutas - IA.png" alt="AI Project" class="project-image">
-                        <div class="project-info">
-                            <h4>Detección temprana de enfermedades en frutas usando CNN y Tensor Flow para mejorar el control de calidad agroalimentario</h4>
-                            <p>Desarrollar un sistema automatizado basado en redes neuronales convolucionales (CNN) utilizando TensorFlow para mejorar la precisión en la detección temprana de enfermedades en frutas en la agroindustria.</p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">CNN</span>
-                                <span class="tech-tag">TensorFlow</span>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Algunos de mis Proyectos</h2>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="desktop">Escritorio</button>
+                <button class="filter-btn" data-filter="ai">IA/ML</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/trendSpace-Web.png" alt="Proyecto Web">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://trendspace.hubstem.org/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/hxtxrchq/TrendSpacev1" class="project-link"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                    </a>
-                    <!-- Botón de enlace debajo del proyecto -->
-                    <a href="https://fruitdetective.vercel.app/" class="project-button">Ver Proyecto</a>
+                    </div>
+                    <div class="project-info">
+                        <h3>TrendSpace</h3>
+                        <p>Plataforma de comercio electrónico colaborativo donde los usuarios no solo compran, sino también votan, proponen y apoyan diseños de moda únicos. La producción se activa solo cuando una prenda alcanza una meta mínima de interés, reduciendo desperdicios y fomentando decisiones colectivas.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML</span>
+                            <span class="tech-badge">CSS</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">MySQL</span>
+                        </div>
+                    </div>
                 </div>
-                
+
+                <div class="project-card" data-category="desktop">
+                    <div class="project-image">
+                        <img src="assets/images/MiniMarketGG.png" alt="Proyecto Desktop">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/hxtxrchq/MiniMarketGG" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>MiniMarketGG</h3>
+                        <p>Sistema de ventas y control de inventario de escritorio para un minimarket, permiteiendo login de usuarios y configuración de permisos, venta de productos, control de inventario de productos, pedidos, categorias. Además, historial de ventas e impresión de boletas.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">MySql</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <img src="assets/images/Detección_De_Frutas - IA.png" alt="Proyecto IA">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://fruitdetective.vercel.app/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/hxtxrchq/backend-fast-api-DeteccionFrutas" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Modelo de detección temprana de enfermedades en frutas individuales</h3>
+                        <p>El proyecto busca desarrollar un sistema automatizado e inteligente que, a través de modelos de aprendizaje profundo, permita identificar con mayor precisión y rapidez la presencia de enfermedades en frutas. De esta manera, se contribuye a mejorar los procesos de control de calidad en la agroindustria, reduciendo pérdidas económicas, garantizando productos más saludables y fortaleciendo la competitividad del sector.”</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">CNN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/Group 11 1 2.png" alt="E-commerce">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Web informativa - Municipalidad Chacaneque</h3>
+                        <p>Web informativa de la Municipalidad de chacaneque, paginas de noticias, funcionarios, decretos supremos, etc</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">Elementor</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/express.png" alt="E-commerce">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://serviciosxpress.tiodanistore.com/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Plataforma Web - XPRESS</h3>
+                        <p>Pagina web de XPRESS que brinda soluciones rápidas y seguras en transporte privado, envíos express y delivery en Trujillo, ofreciendo confianza, atención personalizada y la comodidad de gestionar todo desde tu celular.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">Elementor</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="/assets/images/Trujillo T3D - Web.png" alt="E-commerce">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Trujillo T3D - Plataforma Web</h3>
+                        <p>Plataforma web donde los usuarios podrán comprar productos y hacer seguimiento de sus pedidos. A la vez, los usuarios que son parte de la propia empresa podrán tener la posibilidad de editar productos del catálogo, editar pedidos, entre otras funciones.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Angular</span>
+                            <span class="tech-badge">TypeScript</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-<!-- Resume Section -->
-<section id="resume" class="resume-section">
-    <div class="container">
-        <div class="timeline-container">
-            <div class="timeline-column">
-                <h2 class="timeline-title">Experiencias</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">2024</div>
-                        <div class="timeline-content">
-                            <h4>PROMOTOR DE EXPERIENCIAS 1 - Oeschsle</h4>
-                            <p>Brindé atención al cliente, asesorando en productos y asegurando una experiencia de compra satisfactoria. Además, gestioné la reposición de mercadería y contribuí al cumplimiento de metas de ventas.</p>
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experiencia & Educación</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Junio 2025 - Actualidad</div>
+                        <h3>Desarrollador de Diseño Web</h3>
+                        <h4>Agencia DN - Software & Marketing</h4>
+                        <p>Desarrollo y diseño de páginas web responsivas y totalmente funcionales, optimizadas para brindar una experiencia de usuario fluida y adaptada a las necesidades de cada cliente.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-badge">HTML5</span>
+                            <span class="skill-badge">CSS3</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">WordPress</span>
+                            <span class="skill-badge">Elementor</span>
                         </div>
                     </div>
-                    
+                </div>
+
+               
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - Actualidad</div>
+                        <h3>Ingeniería de Computación y Sistemas</h3>
+                        <h4>Universidad Privada Antenor Orrego</h4>
+                        <p>Décimo superior de la carrera universitaria. He culminado con éxito los primeros 8 ciclos, desarrollando sólidas bases en programación, gestión, bases de datos, desarrollo de software, entre otros.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-badge">Gestión de proyectos y procesos</span>
+                            <span class="skill-badge">Programación</span>
+                            <span class="skill-badge">Bases de Datos</span>
+                            <span class="skill-badge">Algoritmos</span>
+                            <span class="skill-badge">Metodologías Ágiles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020</div>
+                        <h3>Educación Secundaria</h3>
+                        <h4>Colegio de Ciencias Lord Kelvin</h4>
+                        <p>Graduado con excelencia académica, desarrollando bases sólidas en ciencias y matemáticas.</p>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-column">
-                <h2 class="timeline-title">Educación</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-content">
-                            <h4>Universidad Privada Antenor Orrego</h4>
-                            <p> Me encuentro en el décimo superior de mi carrera universitaria y he culminado con éxito los primeros 7 ciclos. </p>
-                        </div>
+
+            <div class="certifications">
+                <h3>Certificaciones</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <i class="fas fa-certificate"></i>
+                        <h4>Programa Integral INNOVALAB</h4>
+                        <p>Tecsup - 51 horas</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-content">
-                            <h4>Curso Discovery DNT-Startups</h4>
-                            <p>Aspirante a emprendedor o solopreneur que busca descubrir una idea de negocio y posibles cofundadores para emprender.</p>
-                        </div>
+                    <div class="cert-card">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Discovery DNT-Startups</h4>
+                        <p>Emprendimiento y Startups</p>
                     </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-year">2019</div>
-                        <div class="timeline-content">
-                            <h4>Tecsup</h4>
-                            <p>Certificación del Programa Integral de INNOVALAB en Tecsup, con una duración de 51 horas. </p>
-                        </div>
+                    <div class="cert-card">
+                        <i class="fas fa-language"></i>
+                        <h4>Inglés Intermedio</h4>
+                        <p>UPAO Centro de Idiomas</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
     <!-- Contact Section -->
-<section id="contact" class="contact-section">
-  <div class="container">
-    <h2 class="section-title" id="contactTitle">Let's talk</h2>
-    <form action="https://formspree.io/f/mrbkowev" method="POST" class="contact-form">
-      <div class="form-group">
-        <input type="text" id="name" name="name" placeholder="Name" required>
-      </div>
-      <div class="form-group">
-        <input type="email" id="email" name="email" placeholder="Email" required>
-      </div>
-      <div class="form-group">
-        <input type="tel" id="phone" name="phone" placeholder="Phone">
-      </div>
-      <div class="form-group">
-        <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
-      </div>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>¡Hablemos!</h3>
+                    <p>Estoy disponible para nuevas oportunidades y proyectos interesantes.</p>
+                    
+                    <div class="contact-methods">
+                        <a href="tel:+51914754513" class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p>+51 914 754 513</p>
+                            </div>
+                        </a>
+                        
+                        <a href="mailto:calonsoparedes1@gmail.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>calonsoparedes1@gmail.com</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://wa.me/51914754513" target="_blank" class="contact-method whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>Enviar mensaje</p>
+                            </div>
+                        </a>
+                    
+                    </div>
+                </div>
+                
+                <form action="https://formspree.io/f/mrbkowev" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Tu Nombre" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Tu Email" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Tu Teléfono">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Tu Mensaje" rows="5" required></textarea>
+                        <i class="fas fa-comment"></i>
+                    </div>
 
-      <!-- Opcional: Desactiva captcha -->
-      <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://hxtxrchq.github.io/Portfolio/gracias.html">
 
-      <!-- Opcional: Redirección tras envío exitoso -->
-      <input type="hidden" name="_next" value="https://hxtxrchq.github.io/Portfolio/gracias.html">
+                    <button type="submit" class="submit-btn">
+                        <span>Enviar Mensaje</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-      <button type="submit" class="submit-btn">Send</button>
-    </form>
-  </div>
-</section>
-
-
-    <script src="/Portfolio/js/script.js"></script>
     <!-- Footer -->
-<footer class="footer">
-    <p>© 2025 Creado por chiqocorp</p>
-</footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Chiqocorp. Todos los derechos reservados.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/hxtxrchq" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://wa.me/51914754513" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:calonsoparedes1@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <!-- Footer -->
 </body>
 </html>
