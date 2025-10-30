@@ -15,7 +15,7 @@
 🧠 &nbsp;Constantly exploring tech, design, and analytics.  
 📲 &nbsp;Currently focused on: **Frontend**, **Backend**, **Machine Learning**.  
 📬 &nbsp;You can reach me at: **calonsoparedes1@gmail.com**
-💼 &nbsp;Portfolio: [Click me](https://hxtxrchq.github.io/Portfolio/).  
+💼 &nbsp;Portfolio: [Click me](https://chiqo.site/).  
 
 ---
 
