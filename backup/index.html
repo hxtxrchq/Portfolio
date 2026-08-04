@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alonso Paredes-Portfolio</title>
+    <link rel="icon" href="assets/images/icono.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Incluir la fuente Madimi One -->
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">AP</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Sobre Mí</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experiencia</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="typing-text">Hola, soy</span>
+                        <br>
+                        <span class="name-highlight">Alonso Paredes</span>
+                    </h1>
+                    <p class="hero-subtitle"> Ingeniero de Sistemas & Desarrollador Integral </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                            <i class="fas fa-code"></i>
+                            Ver Proyectos
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                            <i class="fas fa-envelope"></i>
+                            Contactar
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <div class="profile-img">
+                            <img src="assets/images/foto.png" alt="Alonso Paredes">
+                        </div>
+                        <div class="profile-info">
+                            <h3>Alonso Paredes</h3>
+                            <p>Full Stack Developer</p>
+                            <div class="profile-links">
+                                <a href="https://github.com/hxtxrchq" target="_blank" class="profile-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://chiqo.site" target="_blank" class="profile-link">
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                                <a href="assets/images/CV_ALONSO_PAREDES.pdf" target="_blank" class="profile-link">
+                                    <i class="fas fa-file-pdf"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/carlos-alonso-paredes-quiroz-84b94038b/" target="_blank" class="profile-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moving Tech Bar -->
+    <div class="tech-marquee">
+        <div class="tech-track">
+            <div class="tech-item"><i class="fab fa-python"></i> Python</div>
+            <div class="tech-item"><i class="fab fa-java"></i> Java</div>
+            <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
+            <div class="tech-item"><i class="fab fa-react"></i> React</div>
+            <div class="tech-item"><i class="fab fa-angular"></i> Angular</div>
+            <div class="tech-item"><i class="fab fa-node-js"></i> Node.js</div>
+            <div class="tech-item"><i class="fas fa-database"></i> MySQL</div>
+            <div class="tech-item"><i class="fab fa-git-alt"></i> Git</div>
+            <div class="tech-item"><i class="fab fa-figma"></i> Figma</div>
+            <div class="tech-item"><i class="fab fa-wordpress"></i> WordPress</div>
+            <div class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+            <div class="tech-item"><i class="fas fa-brain"></i> TensorFlow</div>
+            <div class="tech-item"><i class="fab fa-dart"></i> Dart 3</div>
+<div class="tech-item"><i class="fab fa-flutter"></i> Flutter 3</div>
+<div class="tech-item"><i class="fas fa-database"></i> Drift/SQLite, Riverpod</div>
+
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description" text-align="justify">
+                        Actualmente, estoy cursando la carrera de Ingeniería de Computación y Sistemas, 
+                        y me encuentro en la búsqueda de nuevas oportunidades laborales. Apasionado por el 
+                        aprendizaje continuo y el trabajo en equipo, busco aportar mis habilidades técnicas 
+                        y mi capacidad analítica en el ámbito profesional.
+                    </p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="8">0</div>
+                            <div class="stat-label">Ciclos Completados</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="2">0</div>
+                            <div class="stat-label">Años Experiencia</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="20">0</div>
+                            <div class="stat-label">Proyectos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-container">
+                    <div class="skills-category">
+                        <h3><i class="fas fa-code"></i> Lenguajes</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                             <span class="skill-tag">Dart 3</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3><i class="fas fa-paint-brush"></i> Frontend</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Flutter 3</span>
+                            <span class="skill-tag">Angular</span>
+                            <span class="skill-tag">WordPress</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3><i class="fas fa-server"></i> Backend</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">SpringBoot</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3><i class="fas fa-database"></i> Bases de Datos</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Drift/SQLite, Riverpod</span>
+                        </div>
+                    </div>
+                   
+                
+                   
+                    <div class="skills-category">
+                        <h3><i class="fas fa-book-reader"></i> Metodologías</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Scrum</span>
+                            <span class="skill-tag">XP</span>
+                            <span class="skill-tag">ITIL 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Algunos de mis Proyectos</h2>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="desktop">Escritorio</button>
+                <button class="filter-btn" data-filter="ai">IA/ML</button>
+                <button class="filter-btn" data-filter="android">Android</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/trendSpace-Web.png" alt="Proyecto Web">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://trendspace.hubstem.org/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/hxtxrchq/TrendSpacev1" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>TrendSpace</h3>
+                        <p>Plataforma de comercio electrónico colaborativo donde los usuarios no solo compran, sino también votan, proponen y apoyan diseños de moda únicos. La producción se activa solo cuando una prenda alcanza una meta mínima de interés, reduciendo desperdicios y fomentando decisiones colectivas.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML</span>
+                            <span class="tech-badge">CSS</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="desktop">
+                    <div class="project-image">
+                        <img src="assets/images/MiniMarketGG.png" alt="Proyecto Desktop">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                
+                                <a href="https://github.com/hxtxrchq/MiniMarketGG" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>MiniMarketGG</h3>
+                        <p>Sistema de ventas y control de inventario de escritorio para un minimarket, permiteiendo login de usuarios y configuración de permisos, venta de productos, control de inventario de productos, pedidos, categorias. Además, historial de ventas e impresión de boletas.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">MySql</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="android">
+                    <div class="project-image">
+                        <img src="assets/images/LOGO_SIN_FONDO.png" alt="Proyecto Android">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/hxtxrchq/payreminder/releases/tag/App" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/hxtxrchq/payreminder/tree/App" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>PayReminder App</h3>
+                        <p>Aplicación móvil para la gestión de deudas personales, permite crear deudas únicas o recurrentes, programar recordatorios, visualizar un calendario con estados de pago, registrar pagos completos o parciales, organizar por categorías y métodos de pago, calcular intereses opcionales y generar un resumen mensual automático con montos y conteos.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Dart 3</span>
+                            <span class="tech-badge">Flutter 3</span>
+                            <span class="tech-badge">Drift (SQLite)</span>
+                        </div>
+                    </div>
+                </div>    
+                
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <img src="assets/images/Detección_De_Frutas - IA.png" alt="Proyecto IA">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://fruitdetective.vercel.app/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/hxtxrchq/backend-fast-api-DeteccionFrutas" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Modelo de detección temprana de enfermedades en frutas individuales</h3>
+                        <p>El proyecto busca desarrollar un sistema automatizado e inteligente que, a través de modelos de aprendizaje profundo, permita identificar con mayor precisión y rapidez la presencia de enfermedades en frutas. De esta manera, se contribuye a mejorar los procesos de control de calidad en la agroindustria, reduciendo pérdidas económicas, garantizando productos más saludables y fortaleciendo la competitividad del sector.”</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">CNN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/maxima-peruana.png" alt="Tienda Máxima Peruana">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://tienda.maximaperuana.pe/" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Tienda virtual - Máxima Peruana</h3>
+                        <p>
+                            Tienda online especializada en soluciones de seguridad electrónica y redes.
+                            Cuenta con catálogo de productos de CCTV, alarmas contra incendios y robos,
+                            control de accesos y asistencia, radios móviles, cableado estructurado,
+                            UPS y mini UPS, almacenamiento, fibra óptica y más.  
+                            Incluye buscador, filtros por categoría y un carrito de compras para
+                            gestionar pedidos de forma rápida y sencilla.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">Elementor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/express.png" alt="E-commerce">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://serviciosxpress.chiqo.site/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Plataforma Web - XPRESS</h3>
+                        <p>Pagina web de XPRESS que brinda soluciones rápidas y seguras en transporte privado, envíos express y delivery en Trujillo, ofreciendo confianza, atención personalizada y la comodidad de gestionar todo desde tu celular.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">Elementor</span>
+                        </div>
+                    </div>
+                </div>
+                 
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/HG IngePro.png" alt="E-commerce">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://hgingeproperu.com/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Plataforma Web - HG Ingepro</h3>
+                        <p>Sitio corporativo para empresa de soluciones en energía y
+            climatización. Se priorizó claridad de servicios, CTAs de
+            cotización y performance en dispositivos móviles.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">Elementor</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/Versyo logo .png" alt="E-commerce">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://versyo.chiqo.site/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/hxtxrchq/backend-versyo" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Versyo Store - Eccommerce</h3>
+                        <p>Plataforma web donde los usuarios podrán comprar productos y hacer seguimiento de sus pedidos. A la vez, los usuarios que son parte de la propia empresa podrán tener la posibilidad de editar productos del catálogo, editar pedidos, entre otras funciones.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">TypeScript</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/logo.jpg" alt="Final Space Characters Wiki">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://finalspace-characters.chiqo.site/" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/hxtxrchq/-FinalSpace-characters" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Wiki de personajes - Final Space</h3>
+                        <p>
+                            Aplicación tipo wiki para consultar información de los personajes de la serie
+                            <em>Final Space</em>. Consume una API externa
+                            para listar los personajes, mostrar sus imágenes y detalles como nombre, especie
+                            y estado. Incluye listado, vista de detalle y una experiencia rápida sin usar
+                            base de datos propia.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">TypeScript</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">API REST</span>
+                        </div>
+                    </div>
+                </div>  
+                    
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/xperto-automotriz.png" alt="Xperto Automotriz">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://xpertoautomotriz.com/" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Web corporativa - Xperto Automotriz</h3>
+                        <p>
+                            Sitio web corporativo de Xperto Automotriz, taller mecánico en Trujillo orientado al
+                            mantenimiento preventivo y correctivo de vehículos. La web presenta los principales
+                            servicios (cambio de aceite y filtros, alineamiento computarizado 5D, afinamiento, balanceo),
+                            una sección de tienda para la venta de repuestos y lubricantes, información de la empresa,
+                            formulario de contacto y botón para agendar servicios en línea.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">Elementor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/visor-kath3d.png" alt="Visor 3D Proyecto Kath">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://kath-3d.chiqo.site/" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/hxtxrchq/3d-render-kath" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Visor 3D web - Proyecto Dormitorio principal completo</h3>
+                        <p>
+                            Visor 3D en línea para presentar un modelo arquitectónico desarrollado en SketchUp.
+                            La aplicación fue cargada archivos con extensión <code>.glb</code> / <code>.gltf</code> y permite
+                            visualizar el render directamente en el navegador, sin necesidad de instalar software
+                            adicional. El usuario puede explorar el modelo desde diferentes ángulos, ofreciendo
+                            una forma práctica de revisar el proyecto en cualquier dispositivo.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">WebGL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/repo-iot.png" alt="Flowerpot IoT">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://hxtxrchq.github.io/repo-flowerpot-iot/" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/hxtxrchq/repo-flowerpot-iot" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Panel de riego automático - Flowerpot IoT</h3>
+                        <p>
+                            Página web sencilla en HTML que se conecta a un dispositivo ESP32
+                            preconfigurado para el riego automático de una maceta. Cuando el
+                            ESP32 se conecta a la red, el sistema monitorea la humedad del suelo
+                            y determina cuándo la planta necesita agua, activando el riego de
+                            forma automática. La interfaz web sirve como panel de visualización
+                            y control básico del estado del sistema, con el código fuente
+                            disponible en GitHub.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML</span>
+                            <span class="tech-badge">ESP32 / IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experiencia & Educación</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mayo 2025 - Septiembre 2025</div>
+                        <h3>Desarrollador de Diseño Web</h3>
+                        <h4>Agencia DN - Software & Marketing</h4>
+                        <p>Desarrollo y diseño de páginas web responsivas y totalmente funcionales, optimizadas para brindar una experiencia de usuario fluida y adaptada a las necesidades de cada cliente.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-badge">HTML5</span>
+                            <span class="skill-badge">CSS3</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">WordPress</span>
+                            <span class="skill-badge">Elementor</span>
+                        </div>
+                    </div>
+                </div>
+
+               
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - Actualidad</div>
+                        <h3>Ingeniería de Computación y Sistemas</h3>
+                        <h4>Universidad Privada Antenor Orrego</h4>
+                        <p>Décimo superior de la carrera universitaria. He culminado con éxito los primeros 8 ciclos, desarrollando sólidas bases en programación, gestión, bases de datos, desarrollo de software, entre otros.</p>
+                        <div class="timeline-skills">
+                            <span class="skill-badge">Gestión de proyectos y procesos</span>
+                            <span class="skill-badge">Programación</span>
+                            <span class="skill-badge">Bases de Datos</span>
+                            <span class="skill-badge">Algoritmos</span>
+                            <span class="skill-badge">Metodologías Ágiles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020</div>
+                        <h3>Educación Secundaria</h3>
+                        <h4>Colegio de Ciencias Lord Kelvin</h4>
+                        <p>Graduado con excelencia académica, desarrollando bases sólidas en ciencias y matemáticas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certifications">
+                <h3>Certificaciones</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <i class="fas fa-certificate"></i>
+                        <h4>Programa Integral INNOVALAB</h4>
+                        <p>Tecsup - 51 horas</p>
+                    </div>
+                    <div class="cert-card">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Discovery DNT-Startups</h4>
+                        <p>Emprendimiento y Startups</p>
+                    </div>
+                    <div class="cert-card">
+                        <i class="fas fa-language"></i>
+                        <h4>Inglés Intermedio</h4>
+                        <p>UPAO Centro de Idiomas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>¡Hablemos!</h3>
+                    <p>Estoy disponible para nuevas oportunidades y proyectos interesantes.</p>
+                    
+                    <div class="contact-methods">
+                        <a href="tel:+51914754513" class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p>+51 914 754 513</p>
+                            </div>
+                        </a>
+                        
+                        <a href="mailto:calonsoparedes1@gmail.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>calonsoparedes1@gmail.com</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://wa.me/51914754513" target="_blank" class="contact-method whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>Enviar mensaje</p>
+                            </div>
+                        </a>
+                    
+                    </div>
+                </div>
+                
+                <form action="https://formspree.io/f/mrbkowev" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Tu Nombre" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Tu Email" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Tu Teléfono">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Tu Mensaje" rows="5" required></textarea>
+                        <i class="fas fa-comment"></i>
+                    </div>
+
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://hxtxrchq.github.io/Portfolio/gracias.html">
+
+                    <button type="submit" class="submit-btn">
+                        <span>Enviar Mensaje</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Chiqocorp. Todos los derechos reservados.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/hxtxrchq" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://wa.me/51914754513" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:calonsoparedes1@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <!-- Footer -->
+</body>
+</html>
