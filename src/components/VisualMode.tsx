@@ -870,6 +870,16 @@ export const VisualMode: React.FC = () => {
               />
             </div>
             <div>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '6px', fontFamily: 'var(--font-code)', fontWeight: 600 }}>TELÉFONO</label>
+              <input
+                type="tel"
+                name="phone"
+                style={{ width: '100%', padding: '12px', background: '#f8fafc', border: '1px solid var(--border-subtle)', borderRadius: '8px', color: 'var(--text-primary)', outline: 'none', transition: 'var(--transition-smooth)' }}
+                onFocus={e => e.currentTarget.style.borderColor = 'var(--accent-color)'}
+                onBlur={e => e.currentTarget.style.borderColor = 'var(--border-subtle)'}
+              />
+            </div>
+            <div>
               <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '6px', fontFamily: 'var(--font-code)', fontWeight: 600 }}>MENSAJE</label>
               <textarea
                 name="message"
