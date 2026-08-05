@@ -318,16 +318,7 @@ export const VisualMode: React.FC = () => {
     <div style={{ padding: '0 20px 80px 20px', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
       
       {/* 1. Header / Navbar */}
-      <header
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '24px 0',
-          borderBottom: '1px solid var(--border-subtle)',
-          marginBottom: '40px'
-        }}
-      >
+      <header className="header-container">
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <img
             src="/assets/images/logo_signature.png"
@@ -336,7 +327,7 @@ export const VisualMode: React.FC = () => {
           />
         </div>
 
-        <nav style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+        <nav className="nav-links">
           <a href="#home" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Inicio</a>
           <a href="#skills" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Habilidades</a>
           <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Proyectos</a>
@@ -347,30 +338,9 @@ export const VisualMode: React.FC = () => {
       </header>
 
       {/* 2. United Hero & About Me Section */}
-      <section
-        id="home"
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          gap: '40px',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          minHeight: '65vh',
-          padding: '40px 0',
-          marginBottom: '60px'
-        }}
-      >
-        <div style={{ flex: '1 1 550px' }}>
-          <h1
-            style={{
-              fontSize: '3.6rem',
-              lineHeight: '1.1',
-              fontFamily: 'var(--font-title)',
-              marginBottom: '16px',
-              color: 'var(--primary-color)'
-            }}
-          >
+      <section id="home" className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">
             Hola, soy <br />
             <span style={{ color: 'var(--accent-color)' }}>
               Alonso Paredes
@@ -415,18 +385,7 @@ export const VisualMode: React.FC = () => {
           </div>
 
           {/* Stats Dashboard */}
-          <div
-            style={{
-              display: 'flex',
-              gap: '30px',
-              padding: '20px',
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: '16px',
-              boxShadow: 'var(--shadow-subtle)',
-              maxWidth: '500px'
-            }}
-          >
+          <div className="hero-stats">
             <div>
               <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-color)', fontFamily: 'var(--font-code)' }}>+{stats.exp} Años</div>
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Experiencia</div>
@@ -445,7 +404,7 @@ export const VisualMode: React.FC = () => {
         </div>
 
         {/* Profile Card */}
-        <div style={{ flex: '1 1 360px', display: 'flex', justifyContent: 'center' }}>
+        <div className="hero-profile">
           <div
             className="glass"
             style={{
@@ -502,7 +461,7 @@ export const VisualMode: React.FC = () => {
           <Cpu size={26} style={{ color: 'var(--accent-color)' }} /> Habilidades & Competencias
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '30px', alignItems: 'start' }}>
+        <div className="skills-layout">
           {/* Skill Categories Selector */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {[
@@ -656,7 +615,7 @@ export const VisualMode: React.FC = () => {
         </div>
 
         {/* Clean, Simple UX Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '28px' }}>
+        <div className="projects-grid">
           {filteredProjects.map((p, idx) => (
             <div
               key={idx}
@@ -814,7 +773,7 @@ export const VisualMode: React.FC = () => {
           <Mail size={26} style={{ color: 'var(--accent-color)' }} /> Contacto & Enlaces
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px' }}>
+        <div className="contact-layout">
           {/* Info */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <h3 style={{ fontSize: '1.3rem', fontFamily: 'var(--font-title)', color: 'var(--primary-color)' }}>¡Trabajemos juntos!</h3>
