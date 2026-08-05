@@ -338,109 +338,55 @@ export const VisualMode: React.FC = () => {
       </header>
 
       {/* 2. United Hero & About Me Section */}
-      <section id="home" className="hero-section">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            Hola, soy <br />
-            <span style={{ color: 'var(--accent-color)' }}>
-              Alonso Paredes
-            </span>
-          </h1>
-
-          {/* Interactive dynamic Typewriter subtitle */}
-          <h2
-            style={{
-              fontSize: '1.35rem',
-              color: 'var(--text-secondary)',
-              fontWeight: 500,
-              marginBottom: '28px',
-              minHeight: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px'
-            }}
-          >
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--accent-color)', display: 'inline-block' }} />
-            <span className="typewriter-cursor" style={{ paddingRight: '4px' }}>
-              {typewriterText}
-            </span>
-          </h2>
-
-          <div style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', marginBottom: '28px', maxWidth: '620px', lineHeight: '1.8' }}>
-            <p style={{ marginBottom: '16px' }}>
-              Soy egresado en <strong>Ingeniería de Computación y Sistemas</strong>, apasionado por diseñar soluciones tecnológicas que optimicen procesos y aporten valor real.
-            </p>
-            <p>
-              Me apasiona el desarrollo de software integral y de vanguardia. Cuento con un enfoque analítico estructurado, orientado al detalle y con alta proactividad para integrarme a equipos de trabajo enfocados en la innovación tecnológica.
-            </p>
-          </div>
-
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '32px' }}>
-            <a href="#projects" className="btn-cyber">
-              <Code size={18} /> Ver Proyectos
-            </a>
-            <a href="#contact" className="btn-cyber-secondary">
-              <Mail size={18} /> Contactar
-            </a>
-          </div>
-
-          {/* Stats Dashboard */}
-          <div className="hero-stats">
-            <div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-color)', fontFamily: 'var(--font-code)' }}>+{stats.exp} Años</div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Experiencia</div>
-            </div>
-            <div style={{ width: '1px', background: 'var(--border-subtle)' }} />
-            <div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-color)', fontFamily: 'var(--font-code)' }}>+{stats.projects}</div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Proyectos</div>
-            </div>
-            <div style={{ width: '1px', background: 'var(--border-subtle)' }} />
-            <div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-color)', fontFamily: 'var(--font-code)' }}>+{stats.clients}</div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Clientes Satisfechos</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Profile Card */}
-        <div className="hero-profile">
+      <section id="home" className="hero-section" style={{ display: 'flex', flexDirection: 'column', gap: '30px', alignItems: 'center', textAlign: 'center', minHeight: 'auto', padding: '40px 0', marginBottom: '60px' }}>
+        
+        {/* Profile Card Header (Avatar + Name + Title at the top) */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
           <div
-            className="glass"
             style={{
-              width: '340px',
-              padding: '36px 28px',
-              textAlign: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '20px'
+              width: '180px',
+              height: '180px',
+              borderRadius: '50%',
+              overflow: 'hidden',
+              border: '4px solid var(--accent-color)',
+              boxShadow: '0 8px 24px rgba(61, 133, 198, 0.15)',
+              position: 'relative'
             }}
           >
-            <div
+            <img
+              src="/assets/images/foto.png"
+              alt="Alonso Paredes"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </div>
+          
+          <div>
+            <h1 style={{ fontSize: 'clamp(2.2rem, 6vw, 3.6rem)', fontFamily: 'var(--font-title)', color: 'var(--primary-color)', margin: '0 0 8px 0', lineHeight: '1.1' }}>
+              Alonso Paredes
+            </h1>
+            
+            {/* Typewriter subtitle */}
+            <h2
               style={{
-                width: '180px',
-                height: '180px',
-                borderRadius: '50%',
-                overflow: 'hidden',
-                border: '4px solid var(--accent-color)',
-                boxShadow: '0 8px 24px rgba(61, 133, 198, 0.15)',
-                position: 'relative'
+                fontSize: '1.35rem',
+                color: 'var(--text-secondary)',
+                fontWeight: 500,
+                marginBottom: '16px',
+                minHeight: '30px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px'
               }}
             >
-              <img
-                src="/assets/images/foto.png"
-                alt="Alonso Paredes"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </div>
+              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--accent-color)', display: 'inline-block' }} />
+              <span className="typewriter-cursor" style={{ paddingRight: '4px' }}>
+                {typewriterText}
+              </span>
+            </h2>
 
-            <div>
-              <h3 style={{ fontSize: '1.3rem', fontFamily: 'var(--font-title)', color: 'var(--primary-color)' }}>Alonso Paredes</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontFamily: 'var(--font-code)' }}>Full Stack Developer</p>
-            </div>
-
-            <div style={{ display: 'flex', gap: '12px' }}>
+            {/* Social media icons below the subtitle */}
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginBottom: '16px' }}>
               <a href="https://github.com/hxtxrchq" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
                 <GithubIcon size={20} />
               </a>
@@ -451,6 +397,44 @@ export const VisualMode: React.FC = () => {
                 <FileText size={20} />
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Content (passions and descriptions) */}
+        <div style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', maxWidth: '800px', lineHeight: '1.8', margin: '0 auto' }}>
+          <p style={{ marginBottom: '16px' }}>
+            Soy egresado en <strong>Ingeniería de Computación y Sistemas</strong>, apasionado por diseñar soluciones tecnológicas que optimicen procesos y aporten valor real.
+          </p>
+          <p>
+            Me apasiona el desarrollo de software integral y de vanguardia. Cuento con un enfoque analítico estructurado, orientado al detalle y con alta proactividad para integrarme a equipos de trabajo enfocados en la innovación tecnológica.
+          </p>
+        </div>
+
+        {/* Buttons / Calls to Action */}
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '16px' }}>
+          <a href="#projects" className="btn-cyber">
+            <Code size={18} /> Ver Proyectos
+          </a>
+          <a href="#contact" className="btn-cyber-secondary">
+            <Mail size={18} /> Contactar
+          </a>
+        </div>
+
+        {/* Stats Dashboard */}
+        <div className="hero-stats" style={{ margin: '0 auto' }}>
+          <div>
+            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-color)', fontFamily: 'var(--font-code)' }}>+{stats.exp} Años</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Experiencia</div>
+          </div>
+          <div style={{ width: '1px', background: 'var(--border-subtle)' }} />
+          <div>
+            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-color)', fontFamily: 'var(--font-code)' }}>+{stats.projects}</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Proyectos</div>
+          </div>
+          <div style={{ width: '1px', background: 'var(--border-subtle)' }} />
+          <div>
+            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-color)', fontFamily: 'var(--font-code)' }}>+{stats.clients}</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Clientes Satisfechos</div>
           </div>
         </div>
       </section>
