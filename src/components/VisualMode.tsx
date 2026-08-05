@@ -61,6 +61,50 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    title: 'ContentLab',
+    desc: 'Aplicación web diseñada para controlar el flujo de trabajo de una agencia de marketing con sus clientes. Permite supervisar flujos de aprobación en tiempo real, lanzar propuestas de producción de marcas, gestionar alertas de diseño/audiovisual y generar contenido automatizado optimizado con inteligencia artificial.',
+    category: 'web',
+    tech: ['React', 'Node.js', 'Express', 'TailwindCSS'],
+    image: '/assets/images/contentlab.png',
+    githubUrl: 'https://github.com/hxtxrchq/Content_Lab'
+  },
+  {
+    title: 'ECEL Ingeniería & Construcción',
+    desc: 'En ECEL Ingeniería y Construcción contamos con 9 años de experiencia desarrollando soluciones en construcción, supervisión y saneamiento físico-legal inmobiliario, con enfoque en calidad, cumplimiento, seguridad y respaldo técnico en cada proyecto. Trabajamos con criterio técnico, orden operativo y compromiso profesional para responder a las necesidades de cada cliente con soluciones eficientes y confiables.',
+    category: 'web',
+    tech: ['React', 'TypeScript', 'TailwindCSS'],
+    image: '/assets/images/ecel-peru.png',
+    demoUrl: 'https://www.ecelperu.org/',
+    githubUrl: 'https://github.com/hxtxrchq/ECEL'
+  },
+  {
+    title: 'CyM Centurión & Mendoza',
+    desc: 'Supervisión de obras de viviendas, edificios residenciales, locales comerciales e industriales, velando por el cumplimiento del diseño, la calidad constructiva, los plazos establecidos y la seguridad en obra.',
+    category: 'web',
+    tech: ['React', 'TypeScript', 'TailwindCSS'],
+    image: '/assets/images/cym.png',
+    demoUrl: 'https://www.ceymeperu.org/',
+    githubUrl: 'https://github.com/hxtxrchq/CyM'
+  },
+  {
+    title: 'Portafolio Erika Bardales',
+    desc: 'Un portafolio profesional para Erika Bardales donde explica detalladamente su proceso estratégico de marketing y ventas, la creación de sistemas base comerciales, su portafolio de proyectos y los servicios especializados que ofrece para optimizar la atracción y conversión de clientes.',
+    category: 'web',
+    tech: ['React', 'TypeScript', 'TailwindCSS'],
+    image: '/assets/images/erika-bardales.png',
+    demoUrl: 'https://www.erikabardales.com/',
+    githubUrl: 'https://github.com/hxtxrchq/portafolioErika1'
+  },
+  {
+    title: 'PixelBros Web Agency + Intranet',
+    desc: 'Sitio corporativo y sistema intranet para la agencia digital PixelBros. Permite centralizar la gestión de clientes, proyectos y flujos de trabajo internos.',
+    category: 'web',
+    tech: ['React', 'Node.js', 'Express', 'PostgreSQL', 'TailwindCSS'],
+    image: '/assets/images/pixelbros.png',
+    demoUrl: 'https://www.pixelbros.pe/',
+    githubUrl: 'https://github.com/hxtxrchq/PixelBros'
+  },
+  {
     title: 'TrendSpace',
     desc: 'Plataforma de comercio electrónico colaborativo donde los usuarios no solo compran, sino también votan, proponen y apoyan diseños de moda únicos. La producción se activa solo cuando una prenda alcanza una meta mínima de interés, reduciendo desperdicios y fomentando decisiones colectivas.',
     category: 'web',
@@ -164,6 +208,48 @@ const projectsData: Project[] = [
     githubUrl: 'https://github.com/hxtxrchq/repo-flowerpot-iot'
   }
 ];
+
+const ProjectDescription: React.FC<{ desc: string }> = ({ desc }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const maxLength = 130;
+  const isLong = desc.length > maxLength;
+
+  return (
+    <div>
+      <p style={{ 
+        color: 'var(--text-secondary)', 
+        fontSize: '0.88rem', 
+        lineHeight: '1.5',
+        margin: 0
+      }}>
+        {isExpanded || !isLong ? desc : `${desc.substring(0, maxLength)}...`}
+      </p>
+      {isLong && (
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setIsExpanded(!isExpanded);
+          }}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: 'var(--accent-color)',
+            cursor: 'pointer',
+            padding: '4px 0 0 0',
+            fontSize: '0.85rem',
+            fontWeight: 600,
+            fontFamily: 'var(--font-main)',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '4px'
+          }}
+        >
+          {isExpanded ? 'Leer menos' : 'Leer más'}
+        </button>
+      )}
+    </div>
+  );
+};
 
 export const VisualMode: React.FC = () => {
   const [projectFilter, setProjectFilter] = useState<'all' | 'web' | 'desktop' | 'android' | 'ai'>('all');
@@ -616,9 +702,7 @@ export const VisualMode: React.FC = () => {
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px', color: 'var(--primary-color)' }}>
                     {p.title}
                   </h3>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineClamp: 3, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', lineHeight: '1.5' }}>
-                    {p.desc}
-                  </p>
+                  <ProjectDescription desc={p.desc} />
                 </div>
 
                 <div style={{ display: 'flex', gap: '10px' }}>
