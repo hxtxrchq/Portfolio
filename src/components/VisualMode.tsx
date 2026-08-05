@@ -11,7 +11,9 @@ import {
   MessageSquare,
   ChevronRight,
   Layers,
-  Award
+  Award,
+  Menu,
+  X
 } from 'lucide-react';
 
 const GithubIcon: React.FC<{ size?: number }> = ({ size = 20 }) => (
@@ -255,6 +257,12 @@ export const VisualMode: React.FC = () => {
   const [projectFilter, setProjectFilter] = useState<'all' | 'web' | 'desktop' | 'android' | 'ai'>('all');
   const [stats, setStats] = useState({ exp: 0, projects: 0, clients: 0 });
   const [selectedSkillCategory, setSelectedSkillCategory] = useState<'languages' | 'frontend' | 'backend' | 'databases' | 'tools' | 'methodologies' | 'soft'>('languages');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [projectFilter]);
 
   // Typewriter effect states
   const [typewriterText, setTypewriterText] = useState('');
@@ -327,6 +335,10 @@ export const VisualMode: React.FC = () => {
           />
         </div>
 
+        <button className="hamburger-btn" onClick={() => setIsMobileMenuOpen(true)}>
+          <Menu size={24} />
+        </button>
+
         <nav className="nav-links">
           <a href="#home" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Inicio</a>
           <a href="#skills" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Habilidades</a>
@@ -336,6 +348,46 @@ export const VisualMode: React.FC = () => {
           <a href="#contact" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Contacto</a>
         </nav>
       </header>
+
+      {/* Mobile Nav Overlay */}
+      {isMobileMenuOpen && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'var(--bg-main)',
+          zIndex: 99999,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '24px'
+        }}>
+          <button 
+            onClick={() => setIsMobileMenuOpen(false)}
+            style={{
+              position: 'absolute',
+              top: '24px',
+              right: '20px',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              color: 'var(--text-primary)'
+            }}
+          >
+            <X size={32} />
+          </button>
+          
+          <a href="#home" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'var(--primary-color)', textDecoration: 'none', fontSize: '1.5rem', fontWeight: 700 }}>Inicio</a>
+          <a href="#skills" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'var(--primary-color)', textDecoration: 'none', fontSize: '1.5rem', fontWeight: 700 }}>Habilidades</a>
+          <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'var(--primary-color)', textDecoration: 'none', fontSize: '1.5rem', fontWeight: 700 }}>Proyectos</a>
+          <a href="#experience" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'var(--primary-color)', textDecoration: 'none', fontSize: '1.5rem', fontWeight: 700 }}>Trayectoria</a>
+          <a href="#certifications" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'var(--primary-color)', textDecoration: 'none', fontSize: '1.5rem', fontWeight: 700 }}>Certificaciones</a>
+          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'var(--primary-color)', textDecoration: 'none', fontSize: '1.5rem', fontWeight: 700 }}>Contacto</a>
+        </div>
+      )}
 
       {/* 2. United Hero & About Me Section */}
       <section id="home" className="hero-section" style={{ display: 'flex', flexDirection: 'column', gap: '30px', alignItems: 'center', textAlign: 'center', minHeight: 'auto', padding: '40px 0', marginBottom: '60px' }}>
@@ -600,7 +652,7 @@ export const VisualMode: React.FC = () => {
 
         {/* Clean, Simple UX Grid */}
         <div className="projects-grid">
-          {filteredProjects.map((p, idx) => (
+          {filteredProjects.slice(0, visibleCount).map((p, idx) => (
             <div
               key={idx}
               className="glass-card"
@@ -664,6 +716,18 @@ export const VisualMode: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {filteredProjects.length > 6 && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
+            <button
+              onClick={() => setVisibleCount(prev => prev === 6 ? filteredProjects.length : 6)}
+              className="btn-cyber-secondary"
+              style={{ padding: '12px 28px', fontSize: '0.95rem' }}
+            >
+              {visibleCount === 6 ? 'Ver más proyectos' : 'Ver menos'}
+            </button>
+          </div>
+        )}
       </section>
 
       {/* 6. Experience Timeline */}

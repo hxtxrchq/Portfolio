@@ -299,6 +299,21 @@ body {
   gap: 40px;
 }
 
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+.hamburger-btn:hover {
+  color: var(--accent-color);
+}
+
 /* Media Queries */
 @media (max-width: 991px) {
   .skills-layout {
@@ -308,18 +323,19 @@ body {
 
 @media (max-width: 768px) {
   .header-container {
-    flex-direction: column;
-    gap: 16px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     padding: 16px 0;
     margin-bottom: 24px;
-    align-items: center;
-    text-align: center;
   }
 
   .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px 16px;
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: flex;
   }
 
   .hero-section {
