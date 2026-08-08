@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import {
   Code,
-  Briefcase,
   Mail,
   ExternalLink,
   Cpu,
   FileText,
-  Globe,
   Phone,
   MessageSquare,
-  ChevronRight,
-  Layers,
   Award,
   Menu,
-  X
+  X,
+  GitBranch
 } from 'lucide-react';
 
 const GithubIcon: React.FC<{ size?: number }> = ({ size = 20 }) => (
@@ -59,6 +56,7 @@ interface Project {
   image: string;
   demoUrl?: string;
   githubUrl?: string;
+  version: string;
 }
 
 const projectsData: Project[] = [
@@ -68,16 +66,48 @@ const projectsData: Project[] = [
     category: 'web',
     tech: ['React', 'Node.js', 'Express', 'TailwindCSS'],
     image: '/assets/images/contentlab.png',
-    githubUrl: 'https://github.com/hxtxrchq/Content_Lab'
+    githubUrl: 'https://github.com/hxtxrchq/Content_Lab',
+    version: '2.1.0'
+  },
+  {
+    title: 'PixelBros Web Agency + Intranet',
+    desc: 'Sitio corporativo y sistema intranet para la agencia digital PixelBros. Permite centralizar la gestión de clientes, proyectos y flujos de trabajo internos con panel administrativo avanzado.',
+    category: 'web',
+    tech: ['React', 'Node.js', 'Express', 'PostgreSQL', 'TailwindCSS'],
+    image: '/assets/images/pixelbros.png',
+    demoUrl: 'https://www.pixelbros.pe/',
+    githubUrl: 'https://github.com/hxtxrchq/PixelBros',
+    version: '2.0.4'
+  },
+  {
+    title: 'PayReminder App',
+    desc: 'Aplicación móvil para la gestión de deudas personales, permite crear deudas únicas o recurrentes, programar recordatorios, visualizar un calendario con estados de pago, registrar pagos completos o parciales, organizar por categorías y métodos de pago, calcular intereses opcionales y generar un resumen mensual automático.',
+    category: 'android',
+    tech: ['Dart 3', 'Flutter 3', 'Drift (SQLite)'],
+    image: '/assets/images/LOGO_SIN_FONDO.png',
+    demoUrl: 'https://github.com/hxtxrchq/payreminder/releases/tag/App',
+    githubUrl: 'https://github.com/hxtxrchq/payreminder/tree/App',
+    version: '1.8.0'
   },
   {
     title: 'ECEL Ingeniería & Construcción',
-    desc: 'En ECEL Ingeniería y Construcción contamos con 9 años de experiencia desarrollando soluciones en construcción, supervisión y saneamiento físico-legal inmobiliario, con enfoque en calidad, cumplimiento, seguridad y respaldo técnico en cada proyecto. Trabajamos con criterio técnico, orden operativo y compromiso profesional para responder a las necesidades de cada cliente con soluciones eficientes y confiables.',
+    desc: 'En ECEL Ingeniería y Construcción contamos con 9 años de experiencia desarrollando soluciones en construcción, supervisión y saneamiento físico-legal inmobiliario, con enfoque en calidad, cumplimiento, seguridad y respaldo técnico en cada proyecto.',
     category: 'web',
     tech: ['React', 'TypeScript', 'TailwindCSS'],
     image: '/assets/images/ecel-peru.png',
     demoUrl: 'https://www.ecelperu.org/',
-    githubUrl: 'https://github.com/hxtxrchq/ECEL'
+    githubUrl: 'https://github.com/hxtxrchq/ECEL',
+    version: '1.5.0'
+  },
+  {
+    title: 'Modelo de detección temprana de enfermedades en frutas',
+    desc: 'El proyecto busca desarrollar un sistema automatizado e inteligente que, a través de modelos de aprendizaje profundo (CNN), permita identificar con mayor precisión y rapidez la presencia de enfermedades en frutas. De esta manera, se contribuye a mejorar los procesos de control de calidad en la agroindustria.',
+    category: 'ai',
+    tech: ['Python', 'TensorFlow', 'CNN'],
+    image: '/assets/images/Detección_De_Frutas - IA.png',
+    demoUrl: 'https://fruitdetective.vercel.app/',
+    githubUrl: 'https://github.com/hxtxrchq/backend-fast-api-DeteccionFrutas',
+    version: '1.0.2'
   },
   {
     title: 'CyM Centurión & Mendoza',
@@ -86,34 +116,28 @@ const projectsData: Project[] = [
     tech: ['React', 'TypeScript', 'TailwindCSS'],
     image: '/assets/images/cym.png',
     demoUrl: 'https://www.ceymeperu.org/',
-    githubUrl: 'https://github.com/hxtxrchq/CyM'
+    githubUrl: 'https://github.com/hxtxrchq/CyM',
+    version: '1.2.0'
   },
   {
     title: 'Portafolio Erika Bardales',
-    desc: 'Un portafolio profesional para Erika Bardales donde explica detalladamente su proceso estratégico de marketing y ventas, la creación de sistemas base comerciales, su portafolio de proyectos y los servicios especializados que ofrece para optimizar la atracción y conversión de clientes.',
+    desc: 'Un portafolio profesional para Erika Bardales donde explica detalladamente su proceso estratégico de marketing y ventas, la creación de sistemas base comerciales, su portafolio de proyectos y los servicios especializados que ofrece.',
     category: 'web',
     tech: ['React', 'TypeScript', 'TailwindCSS'],
     image: '/assets/images/erika-bardales.png',
     demoUrl: 'https://www.erikabardales.com/',
-    githubUrl: 'https://github.com/hxtxrchq/portafolioErika1'
-  },
-  {
-    title: 'PixelBros Web Agency + Intranet',
-    desc: 'Sitio corporativo y sistema intranet para la agencia digital PixelBros. Permite centralizar la gestión de clientes, proyectos y flujos de trabajo internos.',
-    category: 'web',
-    tech: ['React', 'Node.js', 'Express', 'PostgreSQL', 'TailwindCSS'],
-    image: '/assets/images/pixelbros.png',
-    demoUrl: 'https://www.pixelbros.pe/',
-    githubUrl: 'https://github.com/hxtxrchq/PixelBros'
+    githubUrl: 'https://github.com/hxtxrchq/portafolioErika1',
+    version: '1.1.0'
   },
   {
     title: 'TrendSpace',
-    desc: 'Plataforma de comercio electrónico colaborativo donde los usuarios no solo compran, sino también votan, proponen y apoyan diseños de moda únicos. La producción se activa solo cuando una prenda alcanza una meta mínima de interés, reduciendo desperdicios y fomentando decisiones colectivas.',
+    desc: 'Plataforma de comercio electrónico colaborativo donde los usuarios no solo compran, sino también votan, proponen y apoyan diseños de moda únicos. La producción se activa solo cuando una prenda alcanza una meta mínima de interés.',
     category: 'web',
     tech: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
     image: '/assets/images/trendSpace-Web.png',
     demoUrl: 'https://trendspace.hubstem.org/',
-    githubUrl: 'https://github.com/hxtxrchq/TrendSpacev1'
+    githubUrl: 'https://github.com/hxtxrchq/TrendSpacev1',
+    version: '1.0.0'
   },
   {
     title: 'MiniMarketGG',
@@ -121,49 +145,8 @@ const projectsData: Project[] = [
     category: 'desktop',
     tech: ['Java', 'MySQL'],
     image: '/assets/images/MiniMarketGG.png',
-    githubUrl: 'https://github.com/hxtxrchq/MiniMarketGG'
-  },
-  {
-    title: 'PayReminder App',
-    desc: 'Aplicación móvil para la gestión de deudas personales, permite crear deudas únicas o recurrentes, programar recordatorios, visualizar un calendario con estados de pago, registrar pagos completos o parciales, organizar por categorías y métodos de pago, calcular intereses opcionales y generar un resumen mensual automático con montos y conteos.',
-    category: 'android',
-    tech: ['Dart 3', 'Flutter 3', 'Drift (SQLite)'],
-    image: '/assets/images/LOGO_SIN_FONDO.png',
-    demoUrl: 'https://github.com/hxtxrchq/payreminder/releases/tag/App',
-    githubUrl: 'https://github.com/hxtxrchq/payreminder/tree/App'
-  },
-  {
-    title: 'Modelo de detección temprana de enfermedades en frutas',
-    desc: 'El proyecto busca desarrollar un sistema automatizado e inteligente que, a través de modelos de aprendizaje profundo (CNN), permita identificar con mayor precisión y rapidez la presencia de enfermedades en frutas. De esta manera, se contribuye a mejorar los procesos de control de calidad en la agroindustria, reduciendo pérdidas económicas.',
-    category: 'ai',
-    tech: ['Python', 'TensorFlow', 'CNN'],
-    image: '/assets/images/Detección_De_Frutas - IA.png',
-    demoUrl: 'https://fruitdetective.vercel.app/',
-    githubUrl: 'https://github.com/hxtxrchq/backend-fast-api-DeteccionFrutas'
-  },
-  {
-    title: 'Tienda virtual - Máxima Peruana',
-    desc: 'Tienda online especializada en soluciones de seguridad electrónica y redes. Cuenta con catálogo de productos de CCTV, alarmas contra incendios y robos, control de accesos y asistencia, radios móviles, cableado estructurado, UPS y mini UPS, almacenamiento, fibra óptica y más.',
-    category: 'web',
-    tech: ['WordPress', 'Elementor'],
-    image: '/assets/images/maxima-peruana.png',
-    demoUrl: 'https://tienda.maximaperuana.pe/'
-  },
-  {
-    title: 'Plataforma Web - XPRESS',
-    desc: 'Página web de XPRESS que brinda soluciones rápidas y seguras en transporte privado, envíos express y delivery en Trujillo, ofreciendo confianza, atención personalizada y la comodidad de gestionar todo desde tu celular.',
-    category: 'web',
-    tech: ['WordPress', 'Elementor'],
-    image: '/assets/images/express.png',
-    demoUrl: 'https://serviciosxpress.chiqo.site/'
-  },
-  {
-    title: 'Plataforma Web - HG Ingepro',
-    desc: 'Sitio corporativo para empresa de soluciones en energía y climatización. Se priorizó claridad de servicios, CTAs de cotización y performance en dispositivos móviles.',
-    category: 'web',
-    tech: ['WordPress', 'Elementor'],
-    image: '/assets/images/HG IngePro.png',
-    demoUrl: 'https://hgingeproperu.com/'
+    githubUrl: 'https://github.com/hxtxrchq/MiniMarketGG',
+    version: '2.1.2'
   },
   {
     title: 'Versyo Store - E-commerce',
@@ -172,24 +155,8 @@ const projectsData: Project[] = [
     tech: ['React', 'TypeScript', 'PostgreSQL'],
     image: '/assets/images/Versyo logo .png',
     demoUrl: 'https://versyo.chiqo.site/',
-    githubUrl: 'https://github.com/hxtxrchq/backend-versyo'
-  },
-  {
-    title: 'Wiki de personajes - Final Space',
-    desc: 'Aplicación tipo wiki para consultar información de los personajes de la serie Final Space. Consume una API externa para listar los personajes, mostrar sus imágenes y detalles como nombre, especie y estado.',
-    category: 'web',
-    tech: ['TypeScript', 'JavaScript', 'API REST'],
-    image: '/assets/images/logo.jpg',
-    demoUrl: 'https://finalspace-characters.chiqo.site/',
-    githubUrl: 'https://github.com/hxtxrchq/-FinalSpace-characters'
-  },
-  {
-    title: 'Web corporativa - Xperto Automotriz',
-    desc: 'Sitio web corporativo de Xperto Automotriz, taller mecánico en Trujillo orientado al mantenimiento preventivo y correctivo de vehículos. La web presenta los principales servicios, tienda para venta de repuestos y lubricantes, etc.',
-    category: 'web',
-    tech: ['WordPress', 'Elementor'],
-    image: '/assets/images/xperto-automotriz.png',
-    demoUrl: 'https://xpertoautomotriz.com/'
+    githubUrl: 'https://github.com/hxtxrchq/backend-versyo',
+    version: '1.0.5'
   },
   {
     title: 'Visor 3D web - Proyecto Dormitorio Principal',
@@ -198,7 +165,8 @@ const projectsData: Project[] = [
     tech: ['React', 'JavaScript', 'WebGL'],
     image: '/assets/images/visor-kath3d.png',
     demoUrl: 'https://kath-3d.chiqo.site/',
-    githubUrl: 'https://github.com/hxtxrchq/3d-render-kath'
+    githubUrl: 'https://github.com/hxtxrchq/3d-render-kath',
+    version: '1.0.0'
   },
   {
     title: 'Panel de riego automático - Flowerpot IoT',
@@ -207,20 +175,58 @@ const projectsData: Project[] = [
     tech: ['HTML', 'ESP32 / IoT'],
     image: '/assets/images/repo-iot.png',
     demoUrl: 'https://hxtxrchq.github.io/repo-flowerpot-iot/',
-    githubUrl: 'https://github.com/hxtxrchq/repo-flowerpot-iot'
+    githubUrl: 'https://github.com/hxtxrchq/repo-flowerpot-iot',
+    version: '0.9.0'
+  },
+  {
+    title: 'Tienda virtual - Máxima Peruana',
+    desc: 'Tienda online especializada en soluciones de seguridad electrónica y redes. Cuenta con catálogo de productos de CCTV, alarmas contra incendios y robos, control de accesos y asistencia, fibra óptica y más.',
+    category: 'web',
+    tech: ['WordPress', 'Elementor'],
+    image: '/assets/images/maxima-peruana.png',
+    demoUrl: 'https://tienda.maximaperuana.pe/',
+    version: '1.0.0'
+  },
+  {
+    title: 'Plataforma Web - HG Ingepro',
+    desc: 'Sitio corporativo para empresa de soluciones en energía y climatización. Se priorizó claridad de servicios, CTAs de cotización y performance en dispositivos móviles.',
+    category: 'web',
+    tech: ['WordPress', 'Elementor'],
+    image: '/assets/images/HG IngePro.png',
+    demoUrl: 'https://hgingeproperu.com/',
+    version: '1.0.0'
+  },
+  {
+    title: 'Web corporativa - Xperto Automotriz',
+    desc: 'Sitio web corporativo de Xperto Automotriz, taller mecánico en Trujillo orientado al mantenimiento preventivo y correctivo de vehículos. La web presenta los principales servicios y tienda.',
+    category: 'web',
+    tech: ['WordPress', 'Elementor'],
+    image: '/assets/images/xperto-automotriz.png',
+    demoUrl: 'https://xpertoautomotriz.com/',
+    version: '1.0.0'
+  },
+  {
+    title: 'Wiki de personajes - Final Space',
+    desc: 'Aplicación tipo wiki para consultar información de los personajes de la serie Final Space. Consume una API externa para listar los personajes, mostrar sus imágenes y detalles.',
+    category: 'web',
+    tech: ['TypeScript', 'JavaScript', 'API REST'],
+    image: '/assets/images/logo.jpg',
+    demoUrl: 'https://finalspace-characters.chiqo.site/',
+    githubUrl: 'https://github.com/hxtxrchq/-FinalSpace-characters',
+    version: '1.0.0'
   }
 ];
 
 const ProjectDescription: React.FC<{ desc: string }> = ({ desc }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const maxLength = 130;
+  const maxLength = 120;
   const isLong = desc.length > maxLength;
 
   return (
     <div>
       <p style={{ 
         color: 'var(--text-secondary)', 
-        fontSize: '0.88rem', 
+        fontSize: '0.85rem', 
         lineHeight: '1.5',
         margin: 0
       }}>
@@ -238,7 +244,7 @@ const ProjectDescription: React.FC<{ desc: string }> = ({ desc }) => {
             color: 'var(--accent-color)',
             cursor: 'pointer',
             padding: '4px 0 0 0',
-            fontSize: '0.85rem',
+            fontSize: '0.8rem',
             fontWeight: 600,
             fontFamily: 'var(--font-main)',
             display: 'inline-flex',
@@ -253,44 +259,14 @@ const ProjectDescription: React.FC<{ desc: string }> = ({ desc }) => {
   );
 };
 
-export const VisualMode: React.FC = () => {
-  const [projectFilter, setProjectFilter] = useState<'all' | 'web' | 'desktop' | 'android' | 'ai'>('all');
-  const [stats, setStats] = useState({ exp: 0, projects: 0, clients: 0 });
-  const [selectedSkillCategory, setSelectedSkillCategory] = useState<'languages' | 'frontend' | 'backend' | 'databases' | 'tools' | 'methodologies' | 'soft'>('languages');
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(6);
-
-  useEffect(() => {
-    setVisibleCount(6);
-  }, [projectFilter]);
-
-  // Typewriter effect states
+/* Isolated typewriter effect for maximum performance */
+const TypewriterPrompt: React.FC = () => {
   const [typewriterText, setTypewriterText] = useState('');
   const words = ['Ingeniero de Computación y Sistemas', 'Desarrollador Full Stack', 'Creador de Soluciones Digitales'];
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(100);
 
-  useEffect(() => {
-    const duration = 1200;
-    const steps = 40;
-    const stepTime = duration / steps;
-    let step = 0;
-
-    const timer = setInterval(() => {
-      step++;
-      setStats({
-        exp: Math.min(2, Math.floor((2 / steps) * step)),
-        projects: Math.min(20, Math.floor((20 / steps) * step)),
-        clients: Math.min(15, Math.floor((15 / steps) * step))
-      });
-      if (step >= steps) clearInterval(timer);
-    }, stepTime);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  // Typewriter loop effect
   useEffect(() => {
     let timer: any;
     const currentFullWord = words[wordIndex];
@@ -318,35 +294,160 @@ export const VisualMode: React.FC = () => {
     return () => clearTimeout(timer);
   }, [typewriterText, isDeleting, wordIndex, typingSpeed]);
 
+  return (
+    <span className="typewriter-cursor" style={{ color: '#fff', paddingRight: '4px' }}>
+      {typewriterText}
+    </span>
+  );
+};
+
+/* Isolated statistics loading animation component to prevent page-wide re-renders */
+const BentoStats: React.FC = () => {
+  const [stats, setStats] = useState({ exp: 0, projects: 0, clients: 0 });
+
+  useEffect(() => {
+    const duration = 1000;
+    const steps = 30;
+    const stepTime = duration / steps;
+    let step = 0;
+
+    const timer = setInterval(() => {
+      step++;
+      setStats({
+        exp: Math.min(2, Math.floor((2 / steps) * step)),
+        projects: Math.min(20, Math.floor((20 / steps) * step)),
+        clients: Math.min(15, Math.floor((15 / steps) * step))
+      });
+      if (step >= steps) clearInterval(timer);
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="stats-container">
+      <div className="stat-item">
+        <span className="stat-num">+{stats.exp}</span>
+        <span className="stat-lbl">Años de Trayectoria</span>
+      </div>
+      <div className="stat-item">
+        <span className="stat-num">+{stats.projects}</span>
+        <span className="stat-lbl">Proyectos Completados</span>
+      </div>
+      <div className="stat-item">
+        <span className="stat-num">+{stats.clients}</span>
+        <span className="stat-lbl">Clientes Satisfechos</span>
+      </div>
+    </div>
+  );
+};
+
+type ColorTheme = 'cyan' | 'purple' | 'emerald' | 'amber';
+
+export const VisualMode: React.FC = () => {
+  const [projectFilter, setProjectFilter] = useState<'all' | 'web' | 'desktop' | 'android' | 'ai'>('all');
+  const [selectedSkillCategory, setSelectedSkillCategory] = useState<'languages' | 'frontend' | 'backend' | 'databases' | 'tools' | 'methodologies' | 'soft'>('languages');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(6);
+  const [accentColor, setAccentColor] = useState<ColorTheme>('cyan');
+
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [projectFilter]);
+
+  // Inject CSS variables dynamically when accentColor changes
+  useEffect(() => {
+    const root = document.documentElement;
+    if (accentColor === 'cyan') {
+      root.style.setProperty('--accent-color', '#00f2fe');
+      root.style.setProperty('--accent-blue', '#0ea5e9');
+      root.style.setProperty('--accent-gradient', 'linear-gradient(135deg, #00f2fe 0%, #0ea5e9 100%)');
+      root.style.setProperty('--accent-light', 'rgba(0, 242, 254, 0.08)');
+      root.style.setProperty('--border-active', 'rgba(0, 242, 254, 0.25)');
+    } else if (accentColor === 'purple') {
+      root.style.setProperty('--accent-color', '#c084fc');
+      root.style.setProperty('--accent-blue', '#a855f7');
+      root.style.setProperty('--accent-gradient', 'linear-gradient(135deg, #c084fc 0%, #a855f7 100%)');
+      root.style.setProperty('--accent-light', 'rgba(168, 85, 247, 0.08)');
+      root.style.setProperty('--border-active', 'rgba(168, 85, 247, 0.25)');
+    } else if (accentColor === 'emerald') {
+      root.style.setProperty('--accent-color', '#34d399');
+      root.style.setProperty('--accent-blue', '#10b981');
+      root.style.setProperty('--accent-gradient', 'linear-gradient(135deg, #34d399 0%, #10b981 100%)');
+      root.style.setProperty('--accent-light', 'rgba(16, 185, 129, 0.08)');
+      root.style.setProperty('--border-active', 'rgba(16, 185, 129, 0.25)');
+    } else if (accentColor === 'amber') {
+      root.style.setProperty('--accent-color', '#fbbf24');
+      root.style.setProperty('--accent-blue', '#f59e0b');
+      root.style.setProperty('--accent-gradient', 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)');
+      root.style.setProperty('--accent-light', 'rgba(245, 158, 11, 0.08)');
+      root.style.setProperty('--border-active', 'rgba(245, 158, 11, 0.25)');
+    }
+  }, [accentColor]);
+
   const filteredProjects = projectsData.filter(
     (p) => projectFilter === 'all' || p.category === projectFilter
   );
 
+  const AccentSelector: React.FC = () => {
+    const bgMap = { cyan: '#00f2fe', purple: '#a855f7', emerald: '#10b981', amber: '#f59e0b' };
+    return (
+      <div style={{ display: 'flex', gap: '6px', alignItems: 'center', background: 'rgba(255,255,255,0.03)', padding: '5px 10px', borderRadius: '20px', border: '1px solid var(--border-subtle)' }}>
+        <span style={{ fontSize: '0.62rem', color: 'var(--text-muted)', fontFamily: 'var(--font-code)', marginRight: '4px' }}>TEMA</span>
+        {(['cyan', 'purple', 'emerald', 'amber'] as const).map((color) => (
+          <button
+            key={color}
+            onClick={() => setAccentColor(color)}
+            style={{
+              width: '12px',
+              height: '12px',
+              borderRadius: '50%',
+              background: bgMap[color],
+              border: accentColor === color ? '2px solid #fff' : 'none',
+              cursor: 'pointer',
+              boxShadow: accentColor === color ? `0 0 8px ${bgMap[color]}` : 'none',
+              padding: 0,
+              transition: 'transform 0.2s'
+            }}
+            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.2)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            title={`Acento ${color}`}
+          />
+        ))}
+      </div>
+    );
+  };
+
   return (
-    <div style={{ padding: '0 20px 80px 20px', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+    <div style={{ width: '100%' }}>
       
-      {/* 1. Header / Navbar */}
+      {/* 1. Navbar */}
       <header className="header-container">
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <a href="#home" className="logo-link">
           <img
             src="/assets/images/logo_signature.png"
             alt="Alonso Paredes Logo"
-            style={{ height: '55px', width: 'auto', objectFit: 'contain' }}
+            className="logo-sig-img"
           />
+          <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-code)', fontWeight: 600 }}>&lt;ALONSO_PAREDES /&gt;</span>
+        </a>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+          <AccentSelector />
+
+          <button className="hamburger-btn" onClick={() => setIsMobileMenuOpen(true)}>
+            <Menu size={24} />
+          </button>
+
+          <nav className="nav-links">
+            <a href="#home">Inicio</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#projects">Proyectos</a>
+            <a href="#experience">Trayectoria</a>
+            <a href="#certifications">Certificaciones</a>
+            <a href="#contact">Contacto</a>
+          </nav>
         </div>
-
-        <button className="hamburger-btn" onClick={() => setIsMobileMenuOpen(true)}>
-          <Menu size={24} />
-        </button>
-
-        <nav className="nav-links">
-          <a href="#home" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Inicio</a>
-          <a href="#skills" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Habilidades</a>
-          <a href="#projects" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Proyectos</a>
-          <a href="#experience" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Trayectoria</a>
-          <a href="#certifications" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Certificaciones</a>
-          <a href="#contact" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: 600, transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Contacto</a>
-        </nav>
       </header>
 
       {/* Mobile Nav Overlay */}
@@ -389,155 +490,112 @@ export const VisualMode: React.FC = () => {
         </div>
       )}
 
-      {/* 2. United Hero & About Me Section */}
-      <section id="home" className="hero-section" style={{ display: 'flex', flexDirection: 'column', gap: '30px', alignItems: 'center', textAlign: 'center', minHeight: 'auto', padding: '40px 0', marginBottom: '60px' }}>
+      {/* Main Container */}
+      <main id="home">
         
-        {/* Profile Card Header (Avatar + Name + Title at the top) */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-          <div
-            style={{
-              width: '180px',
-              height: '180px',
-              borderRadius: '50%',
-              overflow: 'hidden',
-              border: '4px solid var(--accent-color)',
-              boxShadow: '0 8px 24px rgba(61, 133, 198, 0.15)',
-              position: 'relative'
-            }}
-          >
-            <img
-              src="/assets/images/foto.png"
-              alt="Alonso Paredes"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-          </div>
+        {/* Bento Grid Header / Hero */}
+        <div className="bento-grid">
           
-          <div>
-            <h1 style={{ fontSize: 'clamp(2.2rem, 6vw, 3.6rem)', fontFamily: 'var(--font-title)', color: 'var(--primary-color)', margin: '0 0 8px 0', lineHeight: '1.1' }}>
-              Alonso Paredes
-            </h1>
-            
-            {/* Typewriter subtitle */}
-            <h2
-              style={{
-                fontSize: '1.35rem',
-                color: 'var(--text-secondary)',
-                fontWeight: 500,
-                marginBottom: '16px',
-                minHeight: '30px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '10px'
-              }}
-            >
-              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--accent-color)', display: 'inline-block' }} />
-              <span className="typewriter-cursor" style={{ paddingRight: '4px' }}>
-                {typewriterText}
-              </span>
-            </h2>
+          {/* Card 1: Profile & Professional Links (Col span 2) */}
+          <div className="bento-card col-span-2" style={{ flexDirection: 'row', gap: '24px', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap', flex: 1 }}>
+              <div style={{ width: '90px', height: '90px', borderRadius: '16px', overflow: 'hidden', border: '2px solid var(--border-active)', boxShadow: '0 0 20px rgba(0, 242, 254, 0.1)', flexShrink: 0, transition: 'border-color 0.3s ease' }}>
+                <img src="/assets/images/foto.png" alt="Alonso" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              <div>
+                <h1 style={{ fontSize: '2.1rem', fontWeight: 800, color: 'var(--primary-color)', letterSpacing: '-0.5px' }}>Alonso Paredes</h1>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-code)', marginTop: '4px' }}>Fullstack Developer &amp; Architect</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '10px', fontFamily: 'var(--font-code)', fontSize: '0.8rem', color: 'var(--accent-color)' }}>
+                  <span className="status-pulse" />
+                  <TypewriterPrompt />
+                </div>
+              </div>
+            </div>
 
-            {/* Social media icons below the subtitle */}
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginBottom: '16px' }}>
-              <a href="https://github.com/hxtxrchq" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
-                <GithubIcon size={20} />
+            {/* Prominent Recruitment and Social Buttons Card */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', minWidth: '160px', flexShrink: 0 }}>
+              <a href="/assets/images/CV_ALONSO_PAREDES.pdf" target="_blank" rel="noopener noreferrer" className="btn-cyber" style={{ justifyContent: 'center' }}>
+                <FileText size={14} /> Descargar CV
               </a>
-              <a href="https://www.linkedin.com/in/carlos-alonso-paredes-quiroz-84b94038b/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
-                <LinkedinIcon size={20} />
+              <a href="https://www.linkedin.com/in/carlos-alonso-paredes-quiroz-84b94038b/" target="_blank" rel="noopener noreferrer" className="btn-cyber-secondary" style={{ justifyContent: 'center' }}>
+                <LinkedinIcon size={14} /> LinkedIn
               </a>
-              <a href="/assets/images/CV_ALONSO_PAREDES.pdf" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
-                <FileText size={20} />
+              <a href="https://github.com/hxtxrchq" target="_blank" rel="noopener noreferrer" className="btn-cyber-secondary" style={{ justifyContent: 'center' }}>
+                <GithubIcon size={14} /> GitHub
+              </a>
+              <a href="https://wa.me/51914754513" target="_blank" rel="noopener noreferrer" className="btn-cyber-secondary" style={{ justifyContent: 'center', color: 'var(--accent-color)', borderColor: 'var(--border-active)' }}>
+                <MessageSquare size={14} /> WhatsApp
               </a>
             </div>
           </div>
-        </div>
 
-        {/* Content (passions and descriptions) */}
-        <div style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', maxWidth: '800px', lineHeight: '1.8', margin: '0 auto' }}>
-          <p style={{ marginBottom: '16px' }}>
-            Soy egresado en <strong>Ingeniería de Computación y Sistemas</strong>, apasionado por diseñar soluciones tecnológicas que optimicen procesos y aporten valor real.
-          </p>
-          <p>
-            Me apasiona el desarrollo de software integral y de vanguardia. Cuento con un enfoque analítico estructurado, orientado al detalle y con alta proactividad para integrarme a equipos de trabajo enfocados en la innovación tecnológica.
-          </p>
-        </div>
-
-        {/* Buttons / Calls to Action */}
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '16px' }}>
-          <a href="#projects" className="btn-cyber">
-            <Code size={18} /> Ver Proyectos
-          </a>
-          <a href="#contact" className="btn-cyber-secondary">
-            <Mail size={18} /> Contactar
-          </a>
-        </div>
-
-        {/* Stats Dashboard */}
-        <div className="hero-stats" style={{ margin: '0 auto' }}>
-          <div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-color)', fontFamily: 'var(--font-code)' }}>+{stats.exp} Años</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Experiencia</div>
-          </div>
-          <div style={{ width: '1px', background: 'var(--border-subtle)' }} />
-          <div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-color)', fontFamily: 'var(--font-code)' }}>+{stats.projects}</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Proyectos</div>
-          </div>
-          <div style={{ width: '1px', background: 'var(--border-subtle)' }} />
-          <div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-color)', fontFamily: 'var(--font-code)' }}>+{stats.clients}</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Clientes Satisfechos</div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Skills Section */}
-      <section id="skills" style={{ marginBottom: '60px', scrollMarginTop: '80px' }}>
-        <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-title)', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--primary-color)' }}>
-          <Cpu size={26} style={{ color: 'var(--accent-color)' }} /> Habilidades & Competencias
-        </h2>
-
-        <div className="skills-layout">
-          {/* Skill Categories Selector */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {[
-              { id: 'languages', label: 'Lenguajes de Programación' },
-              { id: 'frontend', label: 'Desarrollo Frontend' },
-              { id: 'backend', label: 'Backend & Arquitectura' },
-              { id: 'databases', label: 'Bases de Datos' },
-              { id: 'tools', label: 'Herramientas, Diseño & Datos' },
-              { id: 'methodologies', label: 'Metodologías & TI' },
-              { id: 'soft', label: 'Habilidades Blandas' }
-            ].map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedSkillCategory(cat.id as any)}
-                style={{
-                  background: selectedSkillCategory === cat.id ? 'var(--accent-light)' : 'var(--bg-card)',
-                  border: `1px solid ${selectedSkillCategory === cat.id ? 'var(--accent-color)' : 'var(--border-subtle)'}`,
-                  color: selectedSkillCategory === cat.id ? 'var(--accent-color)' : 'var(--text-secondary)',
-                  padding: '14px 16px',
-                  borderRadius: '12px',
-                  textAlign: 'left',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-main)',
-                  fontWeight: 600,
-                  fontSize: '0.9rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  transition: 'var(--transition-smooth)',
-                  boxShadow: 'var(--shadow-subtle)'
-                }}
-              >
-                <span>{cat.label}</span>
-                <ChevronRight size={16} />
-              </button>
-            ))}
+          {/* Card 2: Interactive Console Code Mockup (Col span 1) */}
+          <div className="bento-card">
+            <div className="code-console" style={{ width: '100%' }}>
+              <div className="console-header">
+                <div className="console-dot" style={{ background: '#ef4444' }} />
+                <div className="console-dot" style={{ background: '#f59e0b' }} />
+                <div className="console-dot" style={{ background: '#10b981' }} />
+                <span style={{ marginLeft: '8px', fontSize: '0.65rem', color: 'var(--text-muted)' }}>developer.json</span>
+              </div>
+              <pre style={{ margin: 0, overflowX: 'auto', fontFamily: 'var(--font-code)', fontSize: '0.72rem', color: '#94a3b8' }}>
+                <code>
+                  &#123;<br />
+                  &nbsp;&nbsp;name: <span style={{ color: '#10b981' }}>"Alonso"</span>,<br />
+                  &nbsp;&nbsp;role: <span style={{ color: '#10b981' }}>"Fullstack"</span>,<br />
+                  &nbsp;&nbsp;engine: <span style={{ color: 'var(--accent-color)' }}>"V8/React"</span>,<br />
+                  &nbsp;&nbsp;status: <span style={{ color: '#10b981' }}>"active"</span><br />
+                  &#125;
+                </code>
+              </pre>
+            </div>
           </div>
 
-          {/* Skill Cards Grid (Innovative Knowledge Display) */}
-          <div className="glass" style={{ padding: '30px', minHeight: '300px' }}>
+          {/* Card 3: Metrics & Stats (Col span 3) - NOW ISOLATED */}
+          <div className="bento-card col-span-3">
+            <BentoStats />
+          </div>
+
+        </div>
+
+        {/* 3. Skills Section */}
+        <section id="skills">
+          <h2 className="section-title">
+            <Cpu size={24} style={{ color: 'var(--accent-color)' }} /> Habilidades &amp; Competencias
+          </h2>
+
+          <div className="glass" style={{ padding: '24px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
+              {[
+                { id: 'languages', label: 'Lenguajes de Programación' },
+                { id: 'frontend', label: 'Desarrollo Frontend' },
+                { id: 'backend', label: 'Backend & Arquitectura' },
+                { id: 'databases', label: 'Bases de Datos' },
+                { id: 'tools', label: 'Herramientas & Diseño' },
+                { id: 'methodologies', label: 'Metodologías & TI' },
+                { id: 'soft', label: 'Habilidades Blandas' }
+              ].map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedSkillCategory(cat.id as any)}
+                  style={{
+                    background: selectedSkillCategory === cat.id ? 'var(--accent-light)' : 'rgba(255, 255, 255, 0.01)',
+                    border: `1px solid ${selectedSkillCategory === cat.id ? 'var(--accent-color)' : 'var(--border-subtle)'}`,
+                    color: selectedSkillCategory === cat.id ? 'var(--accent-color)' : 'var(--text-secondary)',
+                    padding: '8px 14px',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontFamily: 'var(--font-main)',
+                    fontWeight: 600,
+                    fontSize: '0.8rem',
+                    transition: 'var(--transition-smooth)'
+                  }}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+
             {(() => {
               const skillsData = {
                 languages: [
@@ -564,352 +622,276 @@ export const VisualMode: React.FC = () => {
                   { name: 'Git & GitHub', desc: 'Gestión colaborativa del código fuente, control de versiones y repositorios.' },
                   { name: 'JIRA & Notion', desc: 'Gestión y organización ágil de tareas, flujos de trabajo y documentación.' },
                   { name: 'Figma & Photoshop', desc: 'Diseño de interfaces de usuario (UI/UX), prototipos interactivos y edición de imágenes.' },
-                  { name: 'Power BI', desc: 'Análisis de datos empresariales, modelado e informes interactivos de negocio.' },
-                  { name: 'Microsoft Office', desc: 'Automatización de hojas de cálculo, presentaciones corporativas y documentación.' }
+                  { name: 'Power BI', desc: 'Análisis de datos empresariales, modelado e informes interactivos de negocio.' }
                 ],
                 methodologies: [
                   { name: 'DevOps & Scrum', desc: 'Gestión de despliegues y automatización ágil en ciclos de desarrollo.' },
-                  { name: 'CRISP-DM & RUP', desc: 'Modelos estructurados para procesos de minería de datos y ciclo de vida de desarrollo de software.' },
-                  { name: 'ITIL 4, PMBOK 6 & Gestión de Proyectos', desc: 'Dirección de proyectos de TI bajo metodologías y mejores prácticas globales.' }
+                  { name: 'CRISP-DM & RUP', desc: 'Modelos estructurados para procesos de minería de datos y ciclo de vida de desarrollo de software.' }
                 ],
                 soft: [
-                  { name: 'Liderazgo & Gestión de Equipos', desc: 'Capacidad para guiar, motivar y organizar equipos de trabajo multidisciplinarios hacia metas comunes.' },
-                  { name: 'Trabajo en Equipo & Comunicación Efectiva', desc: 'Colaboración activa y comunicación interpersonal asertiva y fluida.' },
-                  { name: 'Pensamiento Crítico & Analítico', desc: 'Resolución metódica de problemas complejos con enfoque estructurado.' },
-                  { name: 'Gestión del Tiempo & Adaptabilidad', desc: 'Priorización inteligente de tareas, cumplimiento de plazos y alta flexibilidad frente a cambios.' }
+                  { name: 'Liderazgo & Gestión de Equipos', desc: 'Capacidad para guiar, motivar y organizar equipos de trabajo multidisciplinarios.' },
+                  { name: 'Trabajo en Equipo & Comunicación', desc: 'Colaboración activa y comunicación interpersonal asertiva y fluida.' },
+                  { name: 'Pensamiento Crítico & Analítico', desc: 'Resolución metódica de problemas complejos con enfoque estructurado.' }
                 ]
               };
 
               const currentCategory = selectedSkillCategory as keyof typeof skillsData;
-              const titleMap = {
-                languages: 'Lenguajes de Programación',
-                frontend: 'Desarrollo Frontend',
-                backend: 'Backend & Arquitectura',
-                databases: 'Bases de Datos',
-                tools: 'Herramientas, Diseño & Análisis de Datos',
-                methodologies: 'Metodologías, Marcos de Trabajo & TI',
-                soft: 'Habilidades Blandas'
-              };
 
               return (
-                <div>
-                  <h3 style={{ color: 'var(--accent-color)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.2rem' }}>
-                    <Layers size={20} /> {titleMap[currentCategory]}
-                  </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
-                    {skillsData[currentCategory].map((s) => (
-                      <div key={s.name} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
-                        <div style={{ background: 'var(--accent-light)', color: 'var(--accent-color)', padding: '8px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                          <Code size={16} />
-                        </div>
-                        <div>
-                          <h4 style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--primary-color)', marginBottom: '4px' }}>{s.name}</h4>
-                          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>{s.desc}</p>
-                        </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '12px', marginTop: '15px' }}>
+                  {skillsData[currentCategory].map((s) => (
+                    <div key={s.name} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', background: 'rgba(255, 255, 255, 0.01)', padding: '14px', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
+                      <div style={{ background: 'var(--accent-light)', color: 'var(--accent-color)', padding: '5px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Code size={14} />
                       </div>
-                    ))}
-                  </div>
+                      <div>
+                        <h4 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--primary-color)', marginBottom: '2px' }}>{s.name}</h4>
+                        <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: '1.4' }}>{s.desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               );
             })()}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 5. Projects Section (Direct-Link Grid) */}
-      <section id="projects" style={{ marginBottom: '60px', scrollMarginTop: '80px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', marginBottom: '30px' }}>
-          <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-title)', display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--primary-color)' }}>
-            <Code size={26} style={{ color: 'var(--accent-color)' }} /> Proyectos Destacados
-          </h2>
+        {/* 4. Projects Section */}
+        <section id="projects">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '30px' }}>
+            <h2 className="section-title" style={{ margin: 0 }}>
+              <Code size={24} style={{ color: 'var(--accent-color)' }} /> Despliegues de Módulos (Proyectos)
+            </h2>
 
-          {/* Filters */}
-          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-            {(['all', 'web', 'desktop', 'android', 'ai'] as const).map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setProjectFilter(cat)}
-                style={{
-                  background: projectFilter === cat ? 'var(--accent-color)' : 'var(--bg-card)',
-                  color: projectFilter === cat ? '#ffffff' : 'var(--text-secondary)',
-                  border: `1px solid ${projectFilter === cat ? 'var(--accent-color)' : 'var(--border-subtle)'}`,
-                  padding: '8px 16px',
-                  borderRadius: '20px',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-main)',
-                  fontWeight: 600,
-                  fontSize: '0.85rem',
-                  textTransform: 'uppercase',
-                  transition: 'var(--transition-smooth)',
-                  boxShadow: 'var(--shadow-subtle)'
-                }}
-              >
-                {cat === 'all' ? 'Todos' : cat}
-              </button>
+            {/* Filters */}
+            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+              {(['all', 'web', 'desktop', 'android', 'ai'] as const).map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setProjectFilter(cat)}
+                  style={{
+                    background: projectFilter === cat ? 'var(--accent-color)' : 'rgba(255, 255, 255, 0.01)',
+                    color: projectFilter === cat ? '#050507' : 'var(--text-secondary)',
+                    border: `1px solid ${projectFilter === cat ? 'var(--accent-color)' : 'var(--border-subtle)'}`,
+                    padding: '6px 12px',
+                    borderRadius: '12px',
+                    cursor: 'pointer',
+                    fontFamily: 'var(--font-main)',
+                    fontWeight: 600,
+                    fontSize: '0.72rem',
+                    textTransform: 'uppercase',
+                    transition: 'var(--transition-smooth)'
+                  }}
+                >
+                  {cat === 'all' ? 'Todos' : cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="projects-grid">
+            {filteredProjects.slice(0, visibleCount).map((p, idx) => (
+              <div key={idx} className="glass-card" style={{ borderTop: '2px solid var(--accent-blue)' }}>
+                
+                {/* Deployment Card Header */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', background: 'rgba(0,0,0,0.15)', borderBottom: '1px solid var(--border-subtle)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span className="status-pulse" />
+                    <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-code)', fontWeight: 600 }}>SYS_ACTIVE [v{p.version}]</span>
+                  </div>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--accent-color)', fontFamily: 'var(--font-code)', textTransform: 'uppercase' }}>{p.category}</span>
+                </div>
+
+                {/* Image Banner */}
+                <div style={{ width: '100%', height: '150px', overflow: 'hidden', position: 'relative', background: '#0a0a0f' }}>
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+
+                {/* Text details & links */}
+                <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                  <div style={{ marginBottom: '14px' }}>
+                    <h3 style={{ fontSize: '0.98rem', fontWeight: 700, marginBottom: '6px', color: '#fff' }}>
+                      {p.title}
+                    </h3>
+                    <ProjectDescription desc={p.desc} />
+                    
+                    {/* Tech stack badges */}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '10px' }}>
+                      {p.tech.map((t, tIdx) => (
+                        <span key={tIdx} className="tech-badge">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '8px', borderTop: '1px solid var(--border-subtle)', paddingTop: '10px' }}>
+                    {p.demoUrl && (
+                      <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="btn-cyber" style={{ flex: 1, padding: '7px 8px', fontSize: '0.72rem', justifyContent: 'center' }}>
+                        <ExternalLink size={10} /> Live Demo
+                      </a>
+                    )}
+                    {p.githubUrl && (
+                      <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-cyber-secondary" style={{ flex: 1, padding: '7px 8px', fontSize: '0.72rem', justifyContent: 'center' }}>
+                        <GithubIcon size={10} /> Code
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
-        </div>
 
-        {/* Clean, Simple UX Grid */}
-        <div className="projects-grid">
-          {filteredProjects.slice(0, visibleCount).map((p, idx) => (
-            <div
-              key={idx}
-              className="glass-card"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%',
-                overflow: 'hidden',
-                transition: 'var(--transition-smooth)'
-              }}
-            >
-              {/* Image Banner */}
-              <div style={{ width: '100%', height: '210px', overflow: 'hidden', position: 'relative', background: '#f8fafc' }}>
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'var(--transition-smooth)' }}
-                  className="project-image-hover"
-                />
-                <span style={{
-                  position: 'absolute',
-                  top: '12px',
-                  right: '12px',
-                  background: 'rgba(255, 255, 255, 0.95)',
-                  backdropFilter: 'blur(4px)',
-                  color: 'var(--accent-color)',
-                  fontSize: '0.7rem',
-                  fontWeight: 'bold',
-                  padding: '4px 10px',
-                  borderRadius: '12px',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.5px'
-                }}>
-                  {p.category}
-                </span>
-              </div>
+          {filteredProjects.length > 6 && (
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '28px' }}>
+              <button
+                onClick={() => setVisibleCount(prev => prev === 6 ? filteredProjects.length : 6)}
+                className="btn-cyber-secondary"
+                style={{ padding: '10px 20px', fontSize: '0.8rem' }}
+              >
+                {visibleCount === 6 ? 'Ver más despliegues' : 'Ver menos'}
+              </button>
+            </div>
+          )}
+        </section>
 
-              {/* Text details & links */}
-              <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-                <div style={{ marginBottom: '20px' }}>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '8px', color: 'var(--primary-color)' }}>
-                    {p.title}
+        {/* 5. Experience Timeline (Git Commit Log style) */}
+        <section id="experience">
+          <h2 className="section-title">
+            <GitBranch size={22} style={{ color: 'var(--accent-color)' }} /> Historial de Cambios (Git Log)
+          </h2>
+
+          <div className="git-log-container">
+            {[
+              {
+                hash: 'a7c29e1',
+                date: 'Febrero 2026 - Julio 2026',
+                role: 'Desarrollador Web',
+                company: 'PixelBros - Trujillo, Perú',
+                details: 'Desarrollo y mantenimiento de sitios y aplicaciones web responsivas utilizando React, TypeScript, ExpressJS y frameworks modernos. Enfoque en lógica de negocio robusta, APIs y bases de datos.',
+                category: 'feat'
+              },
+              {
+                hash: 'b39d102',
+                date: 'Mayo 2025 - Septiembre 2025',
+                role: 'Desarrollador de Diseño Web',
+                company: 'Agencia DN - Software & Marketing',
+                details: 'Desarrollo y diseño de páginas web responsivas y totalmente funcionales, optimizadas para brindar una experiencia de usuario fluida.',
+                category: 'feat'
+              },
+              {
+                hash: 'e81f5ac',
+                date: '2021 - 2025',
+                role: 'Ingeniería de Computación y Sistemas',
+                company: 'Universidad Privada Antenor Orrego (UPAO)',
+                details: 'Décimo superior. Formación completa con sólidas bases en algoritmos, bases de datos complejas, arquitectura y gestión ágil.',
+                category: 'docs'
+              }
+            ].map((exp, idx) => (
+              <div key={idx} className="git-commit-node">
+                <div className="git-commit-dot" />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                    <span className="git-commit-hash">{exp.hash}</span>
+                    <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'var(--font-code)' }}>{exp.date}</span>
+                  </div>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary-color)' }}>
+                    <span style={{ color: 'var(--accent-color)', fontFamily: 'var(--font-code)', marginRight: '6px' }}>{exp.category}:</span>
+                    {exp.role}
                   </h3>
-                  <ProjectDescription desc={p.desc} />
-                </div>
-
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  {p.demoUrl && (
-                    <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="btn-cyber" style={{ flex: 1, padding: '10px 14px', fontSize: '0.8rem', justifyContent: 'center' }}>
-                      <ExternalLink size={14} /> Ver Demo
-                    </a>
-                  )}
-                  {p.githubUrl && (
-                    <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-cyber-secondary" style={{ flex: 1, padding: '10px 14px', fontSize: '0.8rem', justifyContent: 'center' }}>
-                      <GithubIcon size={14} /> Código
-                    </a>
-                  )}
+                  <h4 style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 500 }}>{exp.company}</h4>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.82rem', lineHeight: '1.5', background: 'rgba(0,0,0,0.1)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-subtle)', marginTop: '4px' }}>
+                    {exp.details}
+                  </p>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {filteredProjects.length > 6 && (
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
-            <button
-              onClick={() => setVisibleCount(prev => prev === 6 ? filteredProjects.length : 6)}
-              className="btn-cyber-secondary"
-              style={{ padding: '12px 28px', fontSize: '0.95rem' }}
-            >
-              {visibleCount === 6 ? 'Ver más proyectos' : 'Ver menos'}
-            </button>
+            ))}
           </div>
-        )}
-      </section>
+        </section>
 
-      {/* 6. Experience Timeline */}
-      <section id="experience" style={{ marginBottom: '60px', scrollMarginTop: '80px' }}>
-        <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-title)', marginBottom: '36px', display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--primary-color)' }}>
-          <Briefcase size={26} style={{ color: 'var(--accent-color)' }} /> Trayectoria Profesional
-        </h2>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', position: 'relative', paddingLeft: '30px', borderLeft: '2px solid var(--accent-light)' }}>
-          {[
-            {
-              date: 'Febrero 2026 - Julio 2026',
-              role: 'Desarrollador Web',
-              company: 'PixelBros - Trujillo, Perú',
-              details: 'Desarrollo y mantenimiento de sitios y aplicaciones web responsivas, asegurando una experiencia de usuario óptima en distintos dispositivos. Implementación de interfaces dinámicas utilizando React, TypeScript, ExpressJS y frameworks modernos. Desarrollo backend enfocado en la lógica de negocio, manejo de bases de datos e integración de APIs y servicios externos.'
-            },
-            {
-              date: 'Mayo 2025 - Septiembre 2025',
-              role: 'Desarrollador de Diseño Web',
-              company: 'Agencia DN - Software & Marketing',
-              details: 'Desarrollo y diseño de páginas web responsivas y totalmente funcionales, optimizadas para brindar una experiencia de usuario fluida y adaptada a las necesidades de cada cliente.'
-            },
-            {
-              date: '2021 - 2025',
-              role: 'Egresado en Ingeniería de Computación y Sistemas',
-              company: 'Universidad Privada Antenor Orrego (UPAO)',
-              details: 'Décimo superior de la carrera. Formación completa con sólidas bases en algoritmos, bases de datos complejas, desarrollo full stack, arquitectura de software y gestión ágil.'
-            }
-          ].map((exp, idx) => (
-            <div key={idx} style={{ position: 'relative' }}>
-              {/* Dot */}
-              <div
-                style={{
-                  position: 'absolute',
-                  left: '-41px',
-                  top: '6px',
-                  width: '20px',
-                  height: '20px',
-                  borderRadius: '50%',
-                  background: '#ffffff',
-                  border: '3px solid var(--accent-color)',
-                  boxShadow: '0 0 0 4px var(--accent-light)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: 2
-                }}
-              />
-
-              {/* Card */}
-              <div className="glass" style={{ padding: '24px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '0.85rem', color: 'var(--accent-color)', fontFamily: 'var(--font-code)', fontWeight: 600 }}>{exp.date}</span>
-                </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--primary-color)' }}>{exp.role}</h3>
-                <h4 style={{ fontSize: '1rem', color: 'var(--text-secondary)', marginBottom: '12px', fontWeight: 500 }}>{exp.company}</h4>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6' }}>{exp.details}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 6.5 Certifications Section */}
-      <section id="certifications" style={{ marginBottom: '60px', scrollMarginTop: '80px' }}>
-        <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-title)', marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--primary-color)' }}>
-          <Award size={26} style={{ color: 'var(--accent-color)' }} /> Certificaciones
-        </h2>
-
-        <div style={{ maxWidth: '650px' }}>
-          <div className="glass" style={{ padding: '24px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-            <div style={{ background: 'var(--accent-light)', color: 'var(--accent-color)', padding: '12px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <Award size={24} style={{ color: 'var(--accent-color)' }} />
-            </div>
+        {/* 6. Certifications Section */}
+        <section id="certifications">
+          <h2 className="section-title">
+            <Award size={22} style={{ color: 'var(--accent-color)' }} /> Certificaciones
+          </h2>
+          <div className="glass" style={{ padding: '20px', display: 'flex', gap: '12px', alignItems: 'flex-start', maxWidth: '620px' }}>
+            <Award size={22} style={{ color: 'var(--accent-color)', flexShrink: 0 }} />
             <div>
-              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-code)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>TECSUP | INNOVALAB</span>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary-color)', marginBottom: '8px' }}>
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'var(--font-code)', fontWeight: 600 }}>TECSUP | INNOVALAB</span>
+              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary-color)', marginBottom: '4px' }}>
                 Programa Integral de INNOVALAB en Tecsup (51 horas)
               </h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                Formación intensiva en innovación, emprendimiento y transformación digital. Trabajo colaborativo en equipos multidisciplinarios para validar ideas de negocio con enfoque en impacto social y tecnológico.
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', lineHeight: '1.5' }}>
+                Formación intensiva en innovación, emprendimiento y transformación digital. Trabajo colaborativo multidisciplinario para validar ideas de negocio.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 7. Contact Section */}
-      <section id="contact" style={{ scrollMarginTop: '80px' }}>
-        <h2 style={{ fontSize: '2rem', fontFamily: 'var(--font-title)', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--primary-color)' }}>
-          <Mail size={26} style={{ color: 'var(--accent-color)' }} /> Contacto & Enlaces
-        </h2>
+        {/* 7. Contact Section */}
+        <section id="contact">
+          <h2 className="section-title">
+            <Mail size={22} style={{ color: 'var(--accent-color)' }} /> Enlace de Terminal &amp; Contacto
+          </h2>
 
-        <div className="contact-layout">
-          {/* Info */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <h3 style={{ fontSize: '1.3rem', fontFamily: 'var(--font-title)', color: 'var(--primary-color)' }}>¡Trabajemos juntos!</h3>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', fontSize: '1rem' }}>
-              Estoy disponible para nuevas oportunidades laborales y desarrollo de proyectos innovadores. Cuéntame sobre tus necesidades tecnológicas y busquemos la mejor solución.
-            </p>
+          <div className="contact-layout">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h3 style={{ fontSize: '1.1rem', color: 'var(--primary-color)' }}>¡Trabajemos juntos!</h3>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', fontSize: '0.88rem' }}>
+                Estoy disponible para nuevas oportunidades laborales y desarrollo de proyectos innovadores. Cuéntame sobre tus necesidades tecnológicas y busquemos la mejor solución.
+              </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '10px' }}>
-              <a href="tel:+51914754513" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text-secondary)', textDecoration: 'none', transition: 'var(--transition-smooth)', fontWeight: 500 }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
-                <Phone size={18} style={{ color: 'var(--accent-color)' }} />
-                <span>+51 914 754 513</span>
-              </a>
-              <a href="mailto:calonsoparedes1@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text-secondary)', textDecoration: 'none', transition: 'var(--transition-smooth)', fontWeight: 500 }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
-                <Mail size={18} style={{ color: 'var(--accent-color)' }} />
-                <span>calonsoparedes1@gmail.com</span>
-              </a>
-              <a href="https://wa.me/51914754513" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text-secondary)', textDecoration: 'none', transition: 'var(--transition-smooth)', fontWeight: 500 }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
-                <MessageSquare size={18} style={{ color: 'var(--accent-color)' }} />
-                <span>Enviar WhatsApp</span>
-              </a>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '6px' }}>
+                <a href="tel:+51914754513" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.85rem' }}>
+                  <Phone size={16} style={{ color: 'var(--accent-color)' }} />
+                  <span>+51 914 754 513</span>
+                </a>
+                <a href="mailto:calonsoparedes1@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.85rem' }}>
+                  <Mail size={16} style={{ color: 'var(--accent-color)' }} />
+                  <span>calonsoparedes1@gmail.com</span>
+                </a>
+                <a href="https://wa.me/51914754513" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.85rem' }}>
+                  <MessageSquare size={16} style={{ color: 'var(--accent-color)' }} />
+                  <span>Enviar WhatsApp</span>
+                </a>
+              </div>
             </div>
+
+            <form action="https://formspree.io/f/mrbkowev" method="POST" className="glass" style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '4px', fontFamily: 'var(--font-code)', fontWeight: 600 }}>NOMBRE</label>
+                <input type="text" name="name" required style={{ width: '100%', padding: '10px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)', borderRadius: '6px', color: 'var(--text-primary)', outline: 'none' }} />
+              </div>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '4px', fontFamily: 'var(--font-code)', fontWeight: 600 }}>EMAIL</label>
+                <input type="email" name="email" required style={{ width: '100%', padding: '10px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)', borderRadius: '6px', color: 'var(--text-primary)', outline: 'none' }} />
+              </div>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '4px', fontFamily: 'var(--font-code)', fontWeight: 600 }}>MENSAJE</label>
+                <textarea name="message" required rows={3} style={{ width: '100%', padding: '10px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)', borderRadius: '6px', color: 'var(--text-primary)', outline: 'none', resize: 'vertical' }} />
+              </div>
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="https://hxtxrchq.github.io/Portfolio/gracias.html" />
+
+              <button type="submit" className="btn-cyber" style={{ justifyContent: 'center' }}>
+                Enviar Mensaje
+              </button>
+            </form>
           </div>
+        </section>
 
-          {/* Form */}
-          <form action="https://formspree.io/f/mrbkowev" method="POST" className="glass" style={{ padding: '30px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '6px', fontFamily: 'var(--font-code)', fontWeight: 600 }}>NOMBRE</label>
-              <input
-                type="text"
-                name="name"
-                required
-                style={{ width: '100%', padding: '12px', background: '#f8fafc', border: '1px solid var(--border-subtle)', borderRadius: '8px', color: 'var(--text-primary)', outline: 'none', transition: 'var(--transition-smooth)' }}
-                onFocus={e => e.currentTarget.style.borderColor = 'var(--accent-color)'}
-                onBlur={e => e.currentTarget.style.borderColor = 'var(--border-subtle)'}
-              />
-            </div>
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '6px', fontFamily: 'var(--font-code)', fontWeight: 600 }}>EMAIL</label>
-              <input
-                type="email"
-                name="email"
-                required
-                style={{ width: '100%', padding: '12px', background: '#f8fafc', border: '1px solid var(--border-subtle)', borderRadius: '8px', color: 'var(--text-primary)', outline: 'none', transition: 'var(--transition-smooth)' }}
-                onFocus={e => e.currentTarget.style.borderColor = 'var(--accent-color)'}
-                onBlur={e => e.currentTarget.style.borderColor = 'var(--border-subtle)'}
-              />
-            </div>
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '6px', fontFamily: 'var(--font-code)', fontWeight: 600 }}>TELÉFONO</label>
-              <input
-                type="tel"
-                name="phone"
-                style={{ width: '100%', padding: '12px', background: '#f8fafc', border: '1px solid var(--border-subtle)', borderRadius: '8px', color: 'var(--text-primary)', outline: 'none', transition: 'var(--transition-smooth)' }}
-                onFocus={e => e.currentTarget.style.borderColor = 'var(--accent-color)'}
-                onBlur={e => e.currentTarget.style.borderColor = 'var(--border-subtle)'}
-              />
-            </div>
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '6px', fontFamily: 'var(--font-code)', fontWeight: 600 }}>MENSAJE</label>
-              <textarea
-                name="message"
-                required
-                rows={4}
-                style={{ width: '100%', padding: '12px', background: '#f8fafc', border: '1px solid var(--border-subtle)', borderRadius: '8px', color: 'var(--text-primary)', outline: 'none', resize: 'vertical', transition: 'var(--transition-smooth)' }}
-                onFocus={e => e.currentTarget.style.borderColor = 'var(--accent-color)'}
-                onBlur={e => e.currentTarget.style.borderColor = 'var(--border-subtle)'}
-              />
-            </div>
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://hxtxrchq.github.io/Portfolio/gracias.html" />
+      </main>
 
-            <button type="submit" className="btn-cyber" style={{ justifyContent: 'center' }}>
-              Enviar Mensaje
-            </button>
-          </form>
-        </div>
-      </section>
-
-      {/* 8. Footer */}
-      <footer style={{ marginTop: '60px', borderTop: '1px solid var(--border-subtle)', paddingTop: '30px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>&copy; 2026 Chiqocorp. Todos los derechos reservados.</p>
+      {/* Footer */}
+      <footer style={{ borderTop: '1px solid var(--border-subtle)', padding: '30px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', maxWidth: '1140px', margin: '0 auto' }}>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>&copy; 2026 Chiqocorp. Todos los derechos reservados.</p>
         <div style={{ display: 'flex', gap: '16px' }}>
-          <a href="https://github.com/hxtxrchq" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}>
-            <GithubIcon size={18} />
-          </a>
-          <a href="https://www.linkedin.com/in/carlos-alonso-paredes-quiroz-84b94038b/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', transition: 'var(--transition-smooth)' }} onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-color)'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}>
-            <Globe size={18} />
-          </a>
+          <a href="https://github.com/hxtxrchq" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)' }}><GithubIcon size={18} /></a>
+          <a href="https://www.linkedin.com/in/carlos-alonso-paredes-quiroz-84b94038b/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)' }}><LinkedinIcon size={18} /></a>
         </div>
       </footer>
 
