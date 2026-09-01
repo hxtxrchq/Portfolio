@@ -10,7 +10,8 @@ import {
   Award,
   Menu,
   X,
-  GitBranch
+  GitBranch,
+  Play
 } from 'lucide-react';
 
 const GithubIcon: React.FC<{ size?: number }> = ({ size = 20 }) => (
@@ -56,10 +57,31 @@ interface Project {
   image: string;
   demoUrl?: string;
   githubUrl?: string;
+  videoUrl?: string;
   version: string;
 }
 
 const projectsData: Project[] = [
+  {
+    title: 'Desarrollo de un modelo híbrido Autoencoder con Random Forest para la detección de anomalías en transacciones financieras',
+    desc: 'Plataforma integral de detección y monitoreo de fraude financiero que integra un modelo híbrido de Autoencoder y Random Forest como motor analítico, alcanzando un AUC-ROC de 0.8979. El sistema está compuesto por un frontend en Angular alojado en Vercel, un backend en FastAPI con servicios auxiliares en DigitalOcean mediante Docker. La solución prioriza seguridad con autenticación, control de acceso basado en roles, trazabilidad de acciones y restricciones de visualización de datos sensibles. Trasciende el modelo predictivo consolidándose como una plataforma funcional de monitoreo capaz de articular procesamiento, visualización, despliegue y control operativo en un entorno web.',
+    category: 'ai',
+    tech: ['Angular', 'FastAPI', 'Python', 'Autoencoder', 'Random Forest', 'Docker', 'DigitalOcean', 'Vercel'],
+    image: '/assets/images/deteccion_de_fraudes.png',
+    demoUrl: 'https://frontend-ae-rf.vercel.app/auth/login',
+    videoUrl: 'https://youtu.be/YpcY1QEhUMM',
+    version: '1.0.0'
+  },
+  {
+    title: 'Modelo de detección temprana de enfermedades en frutas',
+    desc: 'El proyecto busca desarrollar un sistema automatizado e inteligente que, a través de modelos de aprendizaje profundo (CNN), permita identificar con mayor precisión y rapidez la presencia de enfermedades en frutas. De esta manera, se contribuye a mejorar los procesos de control de calidad en la agroindustria.',
+    category: 'ai',
+    tech: ['Python', 'TensorFlow', 'CNN'],
+    image: '/assets/images/Detección_De_Frutas - IA.png',
+    demoUrl: 'https://fruitdetective.vercel.app/',
+    githubUrl: 'https://github.com/hxtxrchq/backend-fast-api-DeteccionFrutas',
+    version: '1.0.2'
+  },
   {
     title: 'ContentLab',
     desc: 'Aplicación web diseñada para controlar el flujo de trabajo de una agencia de marketing con sus clientes. Permite supervisar flujos de aprobación en tiempo real, lanzar propuestas de producción de marcas, gestionar alertas de diseño/audiovisual y generar contenido automatizado optimizado con inteligencia artificial.',
@@ -80,14 +102,34 @@ const projectsData: Project[] = [
     version: '2.0.4'
   },
   {
-    title: 'PayReminder App',
-    desc: 'Aplicación móvil para la gestión de deudas personales, permite crear deudas únicas o recurrentes, programar recordatorios, visualizar un calendario con estados de pago, registrar pagos completos o parciales, organizar por categorías y métodos de pago, calcular intereses opcionales y generar un resumen mensual automático.',
-    category: 'android',
-    tech: ['Dart 3', 'Flutter 3', 'Drift (SQLite)'],
-    image: '/assets/images/LOGO_SIN_FONDO.png',
-    demoUrl: 'https://github.com/hxtxrchq/payreminder/releases/tag/App',
-    githubUrl: 'https://github.com/hxtxrchq/payreminder/tree/App',
-    version: '1.8.0'
+    title: 'Versyo Store - E-commerce',
+    desc: 'Plataforma web donde los usuarios podrán comprar productos y hacer seguimiento de sus pedidos. A la vez, los usuarios que son parte de la propia empresa podrán tener la posibilidad de editar productos del catálogo, editar pedidos, entre otras funciones.',
+    category: 'web',
+    tech: ['React', 'TypeScript', 'PostgreSQL'],
+    image: '/assets/images/Versyo logo .png',
+    demoUrl: 'https://versyo.chiqo.site/',
+    githubUrl: 'https://github.com/hxtxrchq/backend-versyo',
+    version: '1.0.5'
+  },
+  {
+    title: 'TrendSpace',
+    desc: 'Plataforma de comercio electrónico colaborativo donde los usuarios no solo compran, sino también votan, proponen y apoyan diseños de moda únicos. La producción se activa solo cuando una prenda alcanza una meta mínima de interés.',
+    category: 'web',
+    tech: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
+    image: '/assets/images/trendSpace-Web.png',
+    demoUrl: 'https://trendspace.hubstem.org/',
+    githubUrl: 'https://github.com/hxtxrchq/TrendSpacev1',
+    version: '1.0.0'
+  },
+  {
+    title: 'Visor 3D web - Proyecto Dormitorio Principal',
+    desc: 'Visor 3D en línea para presentar un modelo arquitectónico desarrollado en SketchUp. Carga archivos con extensión .glb/.gltf y permite visualizar el render directamente en el navegador de forma práctica en cualquier dispositivo.',
+    category: 'web',
+    tech: ['React', 'JavaScript', 'WebGL'],
+    image: '/assets/images/visor-kath3d.png',
+    demoUrl: 'https://kath-3d.chiqo.site/',
+    githubUrl: 'https://github.com/hxtxrchq/3d-render-kath',
+    version: '1.0.0'
   },
   {
     title: 'ECEL Ingeniería & Construcción',
@@ -98,16 +140,6 @@ const projectsData: Project[] = [
     demoUrl: 'https://www.ecelperu.org/',
     githubUrl: 'https://github.com/hxtxrchq/ECEL',
     version: '1.5.0'
-  },
-  {
-    title: 'Modelo de detección temprana de enfermedades en frutas',
-    desc: 'El proyecto busca desarrollar un sistema automatizado e inteligente que, a través de modelos de aprendizaje profundo (CNN), permita identificar con mayor precisión y rapidez la presencia de enfermedades en frutas. De esta manera, se contribuye a mejorar los procesos de control de calidad en la agroindustria.',
-    category: 'ai',
-    tech: ['Python', 'TensorFlow', 'CNN'],
-    image: '/assets/images/Detección_De_Frutas - IA.png',
-    demoUrl: 'https://fruitdetective.vercel.app/',
-    githubUrl: 'https://github.com/hxtxrchq/backend-fast-api-DeteccionFrutas',
-    version: '1.0.2'
   },
   {
     title: 'CyM Centurión & Mendoza',
@@ -130,43 +162,14 @@ const projectsData: Project[] = [
     version: '1.1.0'
   },
   {
-    title: 'TrendSpace',
-    desc: 'Plataforma de comercio electrónico colaborativo donde los usuarios no solo compran, sino también votan, proponen y apoyan diseños de moda únicos. La producción se activa solo cuando una prenda alcanza una meta mínima de interés.',
-    category: 'web',
-    tech: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
-    image: '/assets/images/trendSpace-Web.png',
-    demoUrl: 'https://trendspace.hubstem.org/',
-    githubUrl: 'https://github.com/hxtxrchq/TrendSpacev1',
-    version: '1.0.0'
-  },
-  {
-    title: 'MiniMarketGG',
-    desc: 'Sistema de ventas y control de inventario de escritorio para un minimarket, permitiendo login de usuarios y configuración de permisos, venta de productos, control de inventario de productos, pedidos, categorías. Además, historial de ventas e impresión de boletas.',
-    category: 'desktop',
-    tech: ['Java', 'MySQL'],
-    image: '/assets/images/MiniMarketGG.png',
-    githubUrl: 'https://github.com/hxtxrchq/MiniMarketGG',
-    version: '2.1.2'
-  },
-  {
-    title: 'Versyo Store - E-commerce',
-    desc: 'Plataforma web donde los usuarios podrán comprar productos y hacer seguimiento de sus pedidos. A la vez, los usuarios que son parte de la propia empresa podrán tener la posibilidad de editar productos del catálogo, editar pedidos, entre otras funciones.',
-    category: 'web',
-    tech: ['React', 'TypeScript', 'PostgreSQL'],
-    image: '/assets/images/Versyo logo .png',
-    demoUrl: 'https://versyo.chiqo.site/',
-    githubUrl: 'https://github.com/hxtxrchq/backend-versyo',
-    version: '1.0.5'
-  },
-  {
-    title: 'Visor 3D web - Proyecto Dormitorio Principal',
-    desc: 'Visor 3D en línea para presentar un modelo arquitectónico desarrollado en SketchUp. Carga archivos con extensión .glb/.gltf y permite visualizar el render directamente en el navegador de forma práctica en cualquier dispositivo.',
-    category: 'web',
-    tech: ['React', 'JavaScript', 'WebGL'],
-    image: '/assets/images/visor-kath3d.png',
-    demoUrl: 'https://kath-3d.chiqo.site/',
-    githubUrl: 'https://github.com/hxtxrchq/3d-render-kath',
-    version: '1.0.0'
+    title: 'PayReminder App',
+    desc: 'Aplicación móvil para la gestión de deudas personales, permite crear deudas únicas o recurrentes, programar recordatorios, visualizar un calendario con estados de pago, registrar pagos completos o parciales, organizar por categorías y métodos de pago, calcular intereses opcionales y generar un resumen mensual automático.',
+    category: 'android',
+    tech: ['Dart 3', 'Flutter 3', 'Drift (SQLite)'],
+    image: '/assets/images/LOGO_SIN_FONDO.png',
+    demoUrl: 'https://github.com/hxtxrchq/payreminder/releases/tag/App',
+    githubUrl: 'https://github.com/hxtxrchq/payreminder/tree/App',
+    version: '1.8.0'
   },
   {
     title: 'Panel de riego automático - Flowerpot IoT',
@@ -177,6 +180,15 @@ const projectsData: Project[] = [
     demoUrl: 'https://hxtxrchq.github.io/repo-flowerpot-iot/',
     githubUrl: 'https://github.com/hxtxrchq/repo-flowerpot-iot',
     version: '0.9.0'
+  },
+  {
+    title: 'MiniMarketGG',
+    desc: 'Sistema de ventas y control de inventario de escritorio para un minimarket, permitiendo login de usuarios y configuración de permisos, venta de productos, control de inventario de productos, pedidos, categorías. Además, historial de ventas e impresión de boletas.',
+    category: 'desktop',
+    tech: ['Java', 'MySQL'],
+    image: '/assets/images/MiniMarketGG.png',
+    githubUrl: 'https://github.com/hxtxrchq/MiniMarketGG',
+    version: '2.1.2'
   },
   {
     title: 'Tienda virtual - Máxima Peruana',
@@ -303,7 +315,7 @@ const TypewriterPrompt: React.FC = () => {
 
 /* Isolated statistics loading animation component to prevent page-wide re-renders */
 const BentoStats: React.FC = () => {
-  const [stats, setStats] = useState({ exp: 0, projects: 0, clients: 0 });
+  const [stats, setStats] = useState({ exp: 0, techs: 0, certs: 0 });
 
   useEffect(() => {
     const duration = 1000;
@@ -315,8 +327,8 @@ const BentoStats: React.FC = () => {
       step++;
       setStats({
         exp: Math.min(2, Math.floor((2 / steps) * step)),
-        projects: Math.min(20, Math.floor((20 / steps) * step)),
-        clients: Math.min(15, Math.floor((15 / steps) * step))
+        techs: Math.min(18, Math.floor((18 / steps) * step)),
+        certs: Math.min(6, Math.floor((6 / steps) * step))
       });
       if (step >= steps) clearInterval(timer);
     }, stepTime);
@@ -331,12 +343,50 @@ const BentoStats: React.FC = () => {
         <span className="stat-lbl">Años de Trayectoria</span>
       </div>
       <div className="stat-item">
-        <span className="stat-num">+{stats.projects}</span>
-        <span className="stat-lbl">Proyectos Completados</span>
+        <span className="stat-num">+{stats.techs}</span>
+        <span className="stat-lbl">Tecnologías Dominadas</span>
       </div>
       <div className="stat-item">
-        <span className="stat-num">+{stats.clients}</span>
-        <span className="stat-lbl">Clientes Satisfechos</span>
+        <span className="stat-num">+{stats.certs}</span>
+        <span className="stat-lbl">Certificaciones</span>
+      </div>
+    </div>
+  );
+};
+
+const CertificationCard: React.FC<{ provider: string; title: string; description: string }> = ({ provider, title, description }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const maxLength = 150;
+  const isLong = description.length > maxLength;
+
+  return (
+    <div className="glass" style={{ padding: '16px', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+      <Award size={18} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
+      <div style={{ width: '100%' }}>
+        <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-code)', fontWeight: 600 }}>{provider}</span>
+        <h4 style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--primary-color)', marginBottom: '6px' }}>{title}</h4>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', lineHeight: '1.5', margin: 0 }}>
+          {isExpanded || !isLong ? description : `${description.substring(0, maxLength)}...`}
+        </p>
+        {isLong && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'var(--accent-color)',
+              cursor: 'pointer',
+              padding: '6px 0 0 0',
+              fontSize: '0.7rem',
+              fontWeight: 600,
+              fontFamily: 'var(--font-main)',
+              display: 'inline-flex',
+              alignItems: 'center'
+            }}
+          >
+            {isExpanded ? '← Ver menos' : 'Ver más →'}
+          </button>
+        )}
       </div>
     </div>
   );
@@ -515,7 +565,7 @@ export const VisualMode: React.FC = () => {
             {/* Prominent Recruitment and Social Buttons Card */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', minWidth: '160px', flexShrink: 0 }}>
               <a href="/assets/images/CV_ALONSO_PAREDES.pdf" target="_blank" rel="noopener noreferrer" className="btn-cyber" style={{ justifyContent: 'center' }}>
-                <FileText size={14} /> Descargar CV
+                <FileText size={14} /> CV Actualizado
               </a>
               <a href="https://www.linkedin.com/in/carlos-alonso-paredes-quiroz-84b94038b/" target="_blank" rel="noopener noreferrer" className="btn-cyber-secondary" style={{ justifyContent: 'center' }}>
                 <LinkedinIcon size={14} /> LinkedIn
@@ -729,14 +779,19 @@ export const VisualMode: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '8px', borderTop: '1px solid var(--border-subtle)', paddingTop: '10px' }}>
+                  <div style={{ display: 'flex', gap: '8px', borderTop: '1px solid var(--border-subtle)', paddingTop: '10px', flexWrap: 'wrap' }}>
                     {p.demoUrl && (
-                      <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="btn-cyber" style={{ flex: 1, padding: '7px 8px', fontSize: '0.72rem', justifyContent: 'center' }}>
+                      <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="btn-cyber" style={{ flex: 1, padding: '7px 8px', fontSize: '0.72rem', justifyContent: 'center', minWidth: '100px' }}>
                         <ExternalLink size={10} /> Live Demo
                       </a>
                     )}
+                    {p.videoUrl && (
+                      <a href={p.videoUrl} target="_blank" rel="noopener noreferrer" className="btn-cyber" style={{ flex: 1, padding: '7px 8px', fontSize: '0.72rem', justifyContent: 'center', minWidth: '100px' }}>
+                        <Play size={10} /> Ver Video
+                      </a>
+                    )}
                     {p.githubUrl && (
-                      <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-cyber-secondary" style={{ flex: 1, padding: '7px 8px', fontSize: '0.72rem', justifyContent: 'center' }}>
+                      <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-cyber-secondary" style={{ flex: 1, padding: '7px 8px', fontSize: '0.72rem', justifyContent: 'center', minWidth: '100px' }}>
                         <GithubIcon size={10} /> Code
                       </a>
                     )}
@@ -816,19 +871,44 @@ export const VisualMode: React.FC = () => {
         {/* 6. Certifications Section */}
         <section id="certifications">
           <h2 className="section-title">
-            <Award size={22} style={{ color: 'var(--accent-color)' }} /> Certificaciones
+            <Award size={22} style={{ color: 'var(--accent-color)' }} /> Certificaciones & Reconocimientos
           </h2>
-          <div className="glass" style={{ padding: '20px', display: 'flex', gap: '12px', alignItems: 'flex-start', maxWidth: '620px' }}>
-            <Award size={22} style={{ color: 'var(--accent-color)', flexShrink: 0 }} />
-            <div>
-              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'var(--font-code)', fontWeight: 600 }}>TECSUP | INNOVALAB</span>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary-color)', marginBottom: '4px' }}>
-                Programa Integral de INNOVALAB en Tecsup (51 horas)
-              </h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', lineHeight: '1.5' }}>
-                Formación intensiva en innovación, emprendimiento y transformación digital. Trabajo colaborativo multidisciplinario para validar ideas de negocio.
-              </p>
-            </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '16px' }}>
+            <CertificationCard 
+              provider="FREECODECAMP" 
+              title="Scientific Computing with Python"
+              description="Certificación práctica basada en proyectos: estructuras de datos, algoritmos y cómputo numérico en Python (por ejemplo, construir calculadoras, convertidores de unidades, o resolver problemas algorítmicos), reforzando lógica de programación y buenas prácticas."
+            />
+            <CertificationCard 
+              provider="DATACAMP" 
+              title="Intermediate Java"
+              description="Profundiza en programación orientada a objetos: herencia, interfaces, manejo de excepciones, colecciones (listas, sets, maps) y buenas prácticas de diseño en Java. Es el paso natural después de lo básico, enfocado en escribir código más robusto y mantenible."
+            />
+            <CertificationCard 
+              provider="TECSUP | INNOVALAB" 
+              title="Programa Integral de INNOVALAB"
+              description="Formación en innovación y emprendimiento: trabajo colaborativo en equipos multidisciplinarios para idear y validar soluciones de negocio con impacto social y tecnológico, aplicando metodologías de design thinking y validación de ideas."
+            />
+            <CertificationCard 
+              provider="DATACAMP" 
+              title="Intermediate SQL"
+              description="Cubre consultas más avanzadas: subconsultas, funciones de ventana, joins complejos y funciones agregadas, orientado a extraer y transformar datos de bases relacionales para análisis."
+            />
+            <CertificationCard 
+              provider="UPAO 2025" 
+              title="Ponencia — Semana Tecnológica de Ingeniería de Sistemas e IA"
+              description="Presentación de tu propio trabajo: un modelo híbrido que combina un Autoencoder (red neuronal que aprende a reconstruir transacciones normales; cuando no puede reconstruir bien una transacción, es señal de anomalía) con Random Forest (modelo de clasificación basado en múltiples árboles de decisión que refina esa señal para decidir si es fraude o no). La sinergia: el autoencoder detecta anomalías sin necesitar ejemplos etiquetados de fraude, y el Random Forest mejora la precisión final clasificando esas anomalías con mayor certeza."
+            />
+            <CertificationCard 
+              provider="DATACAMP" 
+              title="Optimizing Code in Java"
+              description="Curso avanzado sobre rendimiento en Java: análisis de complejidad de tiempo y espacio, comparación de estructuras de datos (listas, sets, maps) según el caso de uso, programación concurrente con multi-threading y operaciones asíncronas, y patrones de caching e inicialización para mejorar el desempeño de aplicaciones empresariales."
+            />
+            <CertificationCard 
+              provider="DATACAMP" 
+              title="Software Development with GitHub Copilot"
+              description="Enseña a usar Copilot como asistente de desarrollo dentro de VS Code: autocompletado, ediciones en línea, modos de chat, uso de comandos slash y smart actions, cómo dar contexto (chat variables, participantes) para mejorar las sugerencias, personalizar su comportamiento con instrucciones propias, y aplicarlo para generar tests, detectar vulnerabilidades y optimizar código."
+            />
           </div>
         </section>
 
